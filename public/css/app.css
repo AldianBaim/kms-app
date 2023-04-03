@@ -1,0 +1,36 @@
+:root {
+    --primary: #1e90ff;
+    --secondary: #EFEFEF;
+  }
+
+.bg-secondary {
+    background-color: var(--secondary) !important;
+}
+
+.list-group-item {
+    border: 0 !important;
+    box-shadow: 2px 15px 10px -21px rgba(0,0,0,0.9) inset;
+    padding: 15px 15px;
+    font-size: 20px;
+}
+
+.list-group-item:hover {
+    background-color: #eaeaea;
+}
+
+.label {
+    margin-top: -10px !important;
+}
+
+.link {
+    text-decoration: none;
+    color: rgb(94, 92, 92);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: rgb(94, 92, 92);
+}
