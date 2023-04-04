@@ -64,10 +64,13 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="" class="link">
+            <a class="link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <img src="{{asset('image/icon/sidebar/logout.png')}}" width="25" />
                 <span>Logout</span>
             </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
         </li>
     </ul>
 </div>

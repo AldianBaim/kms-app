@@ -25,6 +25,13 @@
 
 <body>
     <div id="app">
+
+        @guest
+        <main>
+            @yield('content')
+        </main>
+        @endguest
+
         @auth
         <section class="bg-secondary">
             <div class="container p-4 p-lg-5">
@@ -41,6 +48,7 @@
             </div>
         </section>
         @endauth
+
     </div>
 </body>
 
