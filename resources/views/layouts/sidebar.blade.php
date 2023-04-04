@@ -9,13 +9,13 @@
         </div>
     </div>
     <ul class="list-group">
-        <li class="list-group-item">
-            <a href="" class="link">
+        <li class="list-group-item {{ request()->is('home') ? 'active' : '' }}">
+            <a href="{{ url('/home') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/dashboard.png')}}" width="25" />
                 <span>Dashboard</span>
             </a>
         </li>
-        <li class="list-group-item">
+        <li class="list-group-item {{ request()->is('knowledge') ? 'active' : '' }}">
             <a href="{{ url('/knowledge') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/knowledge.png')}}" width="25" />
                 <span>Informasi</span>
@@ -45,14 +45,14 @@
                 <span>Galeri Foto</span>
             </a>
         </li>
-        <li class="list-group-item">
-            <a href="" class="link">
+        <li class="list-group-item {{ request()->is('knowledge-capturing') ? 'active' : '' }}">
+            <a href="{{ url('/knowledge-capturing') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/capturing.png')}}" width="25" />
                 <span>Knowledge Capturing</span>
             </a>
         </li>
-        <li class="list-group-item">
-            <a href="" class="link">
+        <li class="list-group-item {{ request()->is('user') ? 'active' : '' }}">
+            <a href="{{ url('/user') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/management-user.png')}}" width="25" />
                 <span>Pengguna</span>
             </a>
@@ -69,8 +69,8 @@
                 <span>Kirim Pesan</span>
             </a>
         </li>
-        <li class="list-group-item">
-            <a href="" class="link">
+        <li class="list-group-item {{ request()->is('kritik-dan-saran') ? 'active' : '' }}">
+            <a href="{{ url('/kritik-dan-saran') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/critic.png')}}" width="25" />
                 <span>Kritik dan Saran</span>
             </a>

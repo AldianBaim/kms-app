@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class RequestController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        return view('request.index');
     }
 
     /**

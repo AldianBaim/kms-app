@@ -7,8 +7,7 @@
     {{ session('status') }}
 </div>
 @endif
-
-<div class="program" style="padding:20px;background:#FFF;">
+<section>
     <h4>Manage Knowledge.</h4>
     <p><small>Pusat informasi pengetahuan tentang Aglaonema</small></p>
 
@@ -30,6 +29,6 @@
     @endforeach
 
     </div>
-</div>
+</section>
 
 @endsection

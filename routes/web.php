@@ -27,3 +27,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/knowledge', [App\Http\Controllers\KnowledgeController::class, 'index']);
 Route::get('/knowledge/detail/{id}', [App\Http\Controllers\KnowledgeController::class, 'detail']);
+
+Route::get('/knowledge-capturing', [App\Http\Controllers\CapturingController::class, 'index']);
+
+Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
+
+Route::get('/request', [App\Http\Controllers\UserController::class, 'index']);
+
+Route::get('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'index']);

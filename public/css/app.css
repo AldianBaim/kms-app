@@ -14,13 +14,9 @@
     font-size: 20px;
 }
 
-.list-group-item:hover {
-    background-color: #eaeaea;
-}
-
-.label {
-    margin-top: -10px !important;
-}
+/* .label {
+    margin-top: -2px !important;
+} */
 
 .link {
     text-decoration: none;
@@ -33,4 +29,8 @@
 
 .link:hover {
     color: rgb(94, 92, 92);
+}
+
+.active {
+    background-color: rgb(150, 215, 245) !important;
 }
