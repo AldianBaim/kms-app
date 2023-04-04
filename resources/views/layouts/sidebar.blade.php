@@ -18,7 +18,31 @@
         <li class="list-group-item">
             <a href="{{ url('/knowledge') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/knowledge.png')}}" width="25" />
-                <span>Manajemen Knowledge</span>
+                <span>Informasi</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="" class="link">
+                <img src="{{asset('image/icon/sidebar/capturing.png')}}" width="25" />
+                <span>Prediksi</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="" class="link">
+                <img src="{{asset('image/icon/sidebar/request.png')}}" width="25" />
+                <span>Pengajuan Materi</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url('/knowledge') }}" class="link">
+                <img src="{{asset('image/icon/sidebar/knowledge.png')}}" width="25" />
+                <span>Tonton Video</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url('/knowledge') }}" class="link">
+                <img src="{{asset('image/icon/sidebar/knowledge.png')}}" width="25" />
+                <span>Galeri Foto</span>
             </a>
         </li>
         <li class="list-group-item">
@@ -30,25 +54,19 @@
         <li class="list-group-item">
             <a href="" class="link">
                 <img src="{{asset('image/icon/sidebar/management-user.png')}}" width="25" />
-                <span>Manajemen User</span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="" class="link">
-                <img src="{{asset('image/icon/sidebar/request.png')}}" width="25" />
-                <span>Manajemen Request</span>
+                <span>Pengguna</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="" class="link">
                 <img src="{{asset('image/icon/sidebar/profile.png')}}" width="25" />
-                <span>My Profile</span>
+                <span>Profil Saya</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="" class="link">
                 <img src="{{asset('image/icon/sidebar/messaging.png')}}" width="25" />
-                <span>Messaging</span>
+                <span>Kirim Pesan</span>
             </a>
         </li>
         <li class="list-group-item">
@@ -60,13 +78,13 @@
         <li class="list-group-item">
             <a href="" class="link">
                 <img src="{{asset('image/icon/sidebar/setting.png')}}" width="25" />
-                <span>Setting</span>
+                <span>Pengaturan</span>
             </a>
         </li>
         <li class="list-group-item">
             <a class="link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <img src="{{asset('image/icon/sidebar/logout.png')}}" width="25" />
-                <span>Logout</span>
+                <span>Keluar</span>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
