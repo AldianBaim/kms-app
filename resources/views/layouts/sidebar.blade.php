@@ -16,7 +16,7 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="" class="link">
+            <a href="{{ url('/knowledge') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/knowledge.png')}}" width="25" />
                 <span>Manajemen Knowledge</span>
             </a>

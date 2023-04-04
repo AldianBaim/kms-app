@@ -24,3 +24,6 @@ Route::get('/users', [UserController::class, 'index'])->middleware('auth:sanctum
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/knowledge', [App\Http\Controllers\KnowledgeController::class, 'index']);
+Route::get('/knowledge/detail/{id}', [App\Http\Controllers\KnowledgeController::class, 'detail']);
