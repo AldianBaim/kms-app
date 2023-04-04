@@ -8,7 +8,7 @@
 </div>
 @endif
 
-<div class="program" style="padding:20px;background:#FFF;">
+<section>
     <h4>{{ $post->title }}</h4>
     <small><b>{{ $post->total_read }}</b> kali dibaca</small> . <small>Dibuat pada 13 Maret 2023</small>
    
@@ -17,6 +17,6 @@
     <div class="mt-5">
         <small><a href="{{ url('/knowledge') }}">Kembali</a></small>
     </div>
-</div>
+</section>
 
 @endsection

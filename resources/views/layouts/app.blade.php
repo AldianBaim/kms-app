@@ -40,7 +40,7 @@
                         @include('layouts.sidebar')
                     </div>
                     <div class="col-lg-9">
-                        <main>
+                        <main class="p-2 bg-white">
                             @yield('content')
                         </main>
                     </div>
