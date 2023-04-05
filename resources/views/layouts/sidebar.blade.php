@@ -4,7 +4,7 @@
             <img src="{{asset('image/Group 2.png')}}" width="80" alt="" />
         </div>
         <div class="col-md-8">
-            <small>Prof. Dr. Ir. {{Auth::user()->name}} M.Si.</small>
+            <small>{{Auth::user()->name}}</small> <br>
             <small>Ketua Umum KNPK</small>
         </div>
     </div>
@@ -58,7 +58,7 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="" class="link">
+            <a href="{{ url('/my-profile') }}" class="link">
                 <i class="fa fa-user"></i>
                 <span>Profil Saya</span>
             </a>
@@ -76,7 +76,7 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="" class="link">
+            <a href="{{ url('/pengaturan') }}" class="link">
                 <i class="fa fa-gear"></i>
                 <span>Pengaturan</span>
             </a>

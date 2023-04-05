@@ -42,8 +42,12 @@ Route::get('/user/{id}/edit', [App\Http\Controllers\UserController::class, 'edit
 Route::post('/user', [App\Http\Controllers\UserController::class, 'store']);
 Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
 Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
+Route::get('/my-profile', [App\Http\Controllers\UserController::class, 'myProfile']);
 
 Route::get('/request', [App\Http\Controllers\RequestController::class, 'index']);
 
 Route::get('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'index']);
 Route::post('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'store']);
+
+Route::get('/pengaturan', [App\Http\Controllers\SettingController::class, 'index']);
+Route::put('/pengaturan/{id}', [App\Http\Controllers\SettingController::class, 'update']);

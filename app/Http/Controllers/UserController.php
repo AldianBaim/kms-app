@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -117,5 +118,17 @@ class UserController extends Controller
     {
         User::where('id', $id)->delete();
         return redirect('/user');
+    }
+
+    /**
+     * Get profile user
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function myProfile()
+    {
+        $user = Auth::user();
+        return view('user.profile', compact('user'));
     }
 }

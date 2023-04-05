@@ -66,14 +66,14 @@
                             </small>
                             @enderror
                         </div>
-                        
-                        <hr/>
+
+                        <hr />
 
                         <div class="mb-2">Daftar sebagai :</div>
 
                         <div class="form-group mb-4">
                             <div class="input-group">
-                                <select class="form-control">
+                                <select name="role_name" class="form-control">
                                     <option value="petani">Petani</option>
                                     <option value="pedagang">Pedagang</option>
                                     <option value="penyuluh">Penyuluh</option>
@@ -82,7 +82,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="d-grid mt-3">
                         <button type="submit" class="btn btn-danger shadow-sm">Daftar</button>
@@ -90,7 +90,7 @@
                 </form>
                 <div class="text-center mt-4 small">
                     Sudah punya akun?
-                    <a href="{{ route('login') }}" class="text-decoration-none"> Masuk  </a>
+                    <a href="{{ route('login') }}" class="text-decoration-none"> Masuk </a>
                 </div>
             </div>
         </div>

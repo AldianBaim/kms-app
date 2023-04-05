@@ -39,3 +39,9 @@ a {
 .active {
     background-color: rgb(150, 215, 245) !important;
 }
+
+.objectfit-cover {
+    width: 120px;
+    height: 120px;
+    object-fit: cover !important;
+}
