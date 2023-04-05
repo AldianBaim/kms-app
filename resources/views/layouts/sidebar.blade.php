@@ -34,13 +34,13 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="{{ url('/knowledge') }}" class="link">
+            <a href="{{ url('/video') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/knowledge.png')}}" width="25" />
                 <span>Tonton Video</span>
             </a>
         </li>
         <li class="list-group-item">
-            <a href="{{ url('/knowledge') }}" class="link">
+            <a href="{{ url('/photo') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/knowledge.png')}}" width="25" />
                 <span>Galeri Foto</span>
             </a>

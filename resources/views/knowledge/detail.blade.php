@@ -10,7 +10,7 @@
 
 <section>
     <h4>{{ $post->title }}</h4>
-    <small><b>{{ $post->total_read }}</b> kali dibaca</small> . <small>Dibuat pada 13 Maret 2023</small>
+    <small><b>{{ $post->total_read }}</b> kali dibaca</small> . <small>Dibuat pada {{ $post->created_at }}</small>
    
     <div class="mt-4"><p>{{ $post->content }}</p></div>
 

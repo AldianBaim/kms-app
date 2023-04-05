@@ -24,7 +24,7 @@ class KnowledgeController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->get();
+        $posts = DB::table('posts')->where('type', 'article')->get();
 
         return view('knowledge/index', ['posts' => $posts]);
     }
@@ -39,5 +39,17 @@ class KnowledgeController extends Controller
         $post = DB::table('posts')->where('id', $id)->first();
         
         return view('knowledge/detail', ['post' => $post]);
+    }
+
+    /**
+     * Video list
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function video()
+    {
+        $posts = DB::table('posts')->where('type', 'video')->get();
+
+        return view('knowledge/video', ['posts' => $posts]);
     }
 }

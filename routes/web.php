@@ -25,8 +25,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/**
+ * Knowledge.
+ */
 Route::get('/knowledge', [App\Http\Controllers\KnowledgeController::class, 'index']);
+Route::get('/video', [App\Http\Controllers\KnowledgeController::class, 'video']);
 Route::get('/knowledge/detail/{id}', [App\Http\Controllers\KnowledgeController::class, 'detail']);
+
 
 Route::get('/knowledge-capturing', [App\Http\Controllers\CapturingController::class, 'index']);
 

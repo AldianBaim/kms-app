@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->enum('type', ['article', 'photo', 'video']);
             $table->string('cover');
+            $table->string('attachment');
             $table->text('content');
             $table->integer('total_read');
             $table->timestamps();
