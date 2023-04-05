@@ -18,13 +18,13 @@
         @foreach ($posts as $post)
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <a href="{{ $post->attachment }}" class="grouped_elements">
-                        <img style="width:100%;" src="{{ $post->attachment }}" />
+                    <a data-fancybox="gallery" data-caption="{{ $post->title }}" data-src="{{ url('image/' . $post->attachment) }}">
+                        <img style="width:100%;" src="{{ url('image/' . $post->attachment) }}" />
                     </a>
                         
                     <div class="card-body">
                         <div class="pull-right">
-                            <a href="{{ $post->attachment }}" target="_blank" download><span class="fa fa-download"></span> Unduh</a>    
+                            <a href="{{ url('image/' . $post->attachment) }}" target="_blank" download><span class="fa fa-download"></span> Unduh</a>    
                         </div>
                     </div>
                 </div>

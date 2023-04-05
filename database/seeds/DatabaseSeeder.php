@@ -30,14 +30,14 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             DB::table('posts')->insert([
                 'user_id' => 1,
                 'title' => $faker->sentence(),
                 'type' => 'photo',
                 'cover' => 'https://picsum.photos/350/150',
                 'content' => $faker->text(),
-                'attachment' => 'https://picsum.photos/350/150',
+                'attachment' => 'aglo' . $i . '.jpg',
                 'created_at' => date('Y-m-d H:i:s'),
                 'total_read' => 1
             ]);
