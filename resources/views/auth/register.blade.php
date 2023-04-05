@@ -11,12 +11,12 @@
                     <div class="card p-4 border-0 shadow-sm">
                         <div class="text-center mb-4" style="margin-top: -10vh">
                             <img src="{{ asset('image/icon/sidebar/profile.png')}}" width="80" class="rounded-circle p-3 mb-4 bg-secondary shadow" />
-                            <h4>CREATE ACCOUNT</h4>
-                            <h6 class="text-muted">Register your personal data</h6>
+                            <h4>KMS Aglaonema</h4>
+                            <h6 class="text-muted">Daftar dan dapatkan berbagai informasi bermanfaat seputar Aglaonema. Gratis!</h6>
                         </div>
                         <div class="form-group mb-4">
                             <div class="input-group">
-                                <input type="text" class="form-control border-0 border border-bottom @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name" />
+                                <input type="text" class="form-control border-0 border border-bottom @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nama" />
                                 <span class="input-group-text bg-white border-0 border-bottom border-1">
                                     👤
                                 </span>
@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group mb-4">
                             <div class="input-group">
-                                <input type="password" class="form-control border-0 border border-bottom @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus placeholder="Password" />
+                                <input type="password" class="form-control border-0 border border-bottom @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus placeholder="Kata Sandi" />
                                 <span class="input-group-text bg-white border-0 border-bottom border-1">
                                     🔒
                                 </span>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group mb-4">
                             <div class="input-group">
-                                <input type="password" class="form-control border-0 border border-bottom @error('confirm_password') is-invalid @enderror" name="password_confirmation" value="{{ old('password_confirmation') }}" required autocomplete="password_confirmation" autofocus placeholder="Confirm Password" />
+                                <input type="password" class="form-control border-0 border border-bottom @error('confirm_password') is-invalid @enderror" name="password_confirmation" value="{{ old('password_confirmation') }}" required autocomplete="password_confirmation" autofocus placeholder="Konfirmasi Sandi" />
                                 <span class="input-group-text bg-white border-0 border-bottom border-1">
                                     🔒
                                 </span>
@@ -66,14 +66,31 @@
                             </small>
                             @enderror
                         </div>
+                        
+                        <hr/>
+
+                        <div class="mb-2">Daftar sebagai :</div>
+
+                        <div class="form-group mb-4">
+                            <div class="input-group">
+                                <select class="form-control">
+                                    <option value="petani">Petani</option>
+                                    <option value="pedagang">Pedagang</option>
+                                    <option value="penyuluh">Penyuluh</option>
+                                    <option value="dinas">Dinas Pertanian</option>
+                                    <option value="kelompok">Kelompok Petani</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="d-grid mt-3">
-                        <button type="submit" class="btn btn-danger shadow-sm">REGISTER</button>
+                        <button type="submit" class="btn btn-danger shadow-sm">Daftar</button>
                     </div>
                 </form>
                 <div class="text-center mt-4 small">
-                    Already have account?
-                    <a href="{{ route('login') }}" class="text-decoration-none"> Login here </a>
+                    Sudah punya akun?
+                    <a href="{{ route('login') }}" class="text-decoration-none"> Masuk  </a>
                 </div>
             </div>
         </div>

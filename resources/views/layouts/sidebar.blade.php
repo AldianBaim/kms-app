@@ -21,16 +21,16 @@
                 <span>Informasi</span>
             </a>
         </li>
+        <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
+            <a href="{{ url('/request') }}" class="link">
+                <img src="{{asset('image/icon/sidebar/request.png')}}" width="25" />
+                <span>Request Materi</span>
+            </a>
+        </li>
         <li class="list-group-item">
             <a href="" class="link">
                 <img src="{{asset('image/icon/sidebar/capturing.png')}}" width="25" />
                 <span>Prediksi</span>
-            </a>
-        </li>
-        <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
-            <a href="{{ url('/request') }}" class="link">
-                <img src="{{asset('image/icon/sidebar/request.png')}}" width="25" />
-                <span>Pengajuan Materi</span>
             </a>
         </li>
         <li class="list-group-item">
