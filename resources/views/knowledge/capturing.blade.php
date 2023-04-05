@@ -7,9 +7,9 @@
     {{ session('status') }}
 </div>
 @endif
-
-<section>
-    <h4>Content here</h4>
+<section class="p-3">
+    <h4>Knowledge Capturing.</h4>
+    <p><small>Small description about capturing</small></p>
 </section>
 
 @endsection

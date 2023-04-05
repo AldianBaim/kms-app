@@ -11,7 +11,8 @@
 @endif
 
 <section>
-    <h2>Formulir kritik dan saran</h2>
+    <h4>Formulir kritik dan saran</h4>
+    <p><small>Pastikan data sudah benar sebelum submit</small></p>
     <div class="row">
         <div class="col-lg-7">
             <form action="/kritik-dan-saran" method="POST">
