@@ -9,7 +9,8 @@
 @endif
 
 <section>
-    <h4>Content here</h4>
+    <h4>Pengajuan Materi</h4>
+    <p><small>Small description about pengajuan materi</small></p>
 </section>
 
 @endsection
