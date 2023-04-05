@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 'type' => 'video',
                 'cover' => 'https://picsum.photos/350/150',
                 'content' => $faker->text(),
-                'attachment' => 'sample',
+                'attachment' => 'sample.mp4',
                 'created_at' => date('Y-m-d H:i:s'),
                 'total_read' => 1
             ]);
