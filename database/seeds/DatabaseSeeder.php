@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -16,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        for($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i <= 10; $i++) {
             DB::table('posts')->insert([
                 'user_id' => 1,
                 'title' => $faker->sentence(),
@@ -29,7 +30,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        for($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             DB::table('posts')->insert([
                 'user_id' => 1,
                 'title' => $faker->sentence(),
@@ -42,7 +43,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        for($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             DB::table('posts')->insert([
                 'user_id' => 1,
                 'title' => $faker->sentence(),
@@ -54,7 +55,7 @@ class DatabaseSeeder extends Seeder
                 'total_read' => 1
             ]);
             DB::table('feedbacks')->insert([
-                'user_id' => 1,
+                'user_id' => $faker->randomDigitNot(0),
                 'subject' => $faker->sentence(),
                 'message' => $faker->text(),
             ]);

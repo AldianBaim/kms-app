@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CriticController extends Controller
@@ -35,10 +36,11 @@ class CriticController extends Controller
         ]);
 
         DB::table('feedbacks')->insert([
-            'user_id' => 1,
+            'user_id' => Auth::user()->id,
             'subject' => $request->subject,
             'message' => $request->message,
         ]);
+
         $request->session()->flash('status', 'Kritik dan saran berhasil diajukan');
         return redirect('/kritik-dan-saran');
     }
