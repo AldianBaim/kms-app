@@ -37,7 +37,13 @@ Route::get('/knowledge/detail/{id}', [App\Http\Controllers\KnowledgeController::
 Route::get('/knowledge-capturing', [App\Http\Controllers\CapturingController::class, 'index']);
 
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
+Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create']);
+Route::get('/user/{id}/edit', [App\Http\Controllers\UserController::class, 'edit']);
+Route::post('/user', [App\Http\Controllers\UserController::class, 'store']);
+Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update']);
+Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 
-Route::get('/request', [App\Http\Controllers\UserController::class, 'index']);
+Route::get('/request', [App\Http\Controllers\RequestController::class, 'index']);
 
 Route::get('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'index']);
+Route::post('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'store']);

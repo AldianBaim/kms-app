@@ -1,4 +1,4 @@
-<div class="card border-0">
+<div class="card border-0 shadow-sm">
     <div class="row align-items-end justify-content-center m-0 py-4" style="background: linear-gradient(white, rgb(173, 218, 239))">
         <div class="col-md-4">
             <img src="{{asset('image/Group 2.png')}}" width="80" alt="" />
@@ -27,8 +27,8 @@
                 <span>Prediksi</span>
             </a>
         </li>
-        <li class="list-group-item">
-            <a href="" class="link">
+        <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
+            <a href="{{ url('/request') }}" class="link">
                 <img src="{{asset('image/icon/sidebar/request.png')}}" width="25" />
                 <span>Pengajuan Materi</span>
             </a>

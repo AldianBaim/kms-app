@@ -53,6 +53,11 @@ class DatabaseSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'total_read' => 1
             ]);
+            DB::table('feedbacks')->insert([
+                'user_id' => 1,
+                'subject' => $faker->sentence(),
+                'message' => $faker->text(),
+            ]);
         }
     }
 }

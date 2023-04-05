@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CriticController extends Controller
 {
@@ -24,5 +25,21 @@ class CriticController extends Controller
     public function index()
     {
         return view('critic.index');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        DB::table('feedbacks')->insert([
+            'user_id' => 1,
+            'subject' => $request->subject,
+            'message' => $request->message,
+        ]);
+        $request->session()->flash('status', 'Kritik dan saran berhasil diajukan');
+        return redirect('/kritik-dan-saran');
     }
 }

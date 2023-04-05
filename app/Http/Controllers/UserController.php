@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -23,7 +24,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $users = User::paginate(5);
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -33,7 +35,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -44,7 +46,20 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'password_confirm' => 'required_with:password|same:password',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
+
+        return redirect('/user');
     }
 
     /**
@@ -66,7 +81,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -78,7 +94,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
+        User::where('id', $id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+        ]);
+
+        return redirect('/user');
     }
 
     /**
@@ -89,6 +115,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::where('id', $id)->delete();
+        return redirect('/user');
     }
 }
