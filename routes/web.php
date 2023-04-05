@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  */
 Route::get('/knowledge', [App\Http\Controllers\KnowledgeController::class, 'index']);
 Route::get('/video', [App\Http\Controllers\KnowledgeController::class, 'video']);
+Route::get('/photo', [App\Http\Controllers\KnowledgeController::class, 'photo']);
 Route::get('/knowledge/detail/{id}', [App\Http\Controllers\KnowledgeController::class, 'detail']);
 
 

@@ -52,4 +52,16 @@ class KnowledgeController extends Controller
 
         return view('knowledge/video', ['posts' => $posts]);
     }
+
+    /**
+     * Photo list
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function photo()
+    {
+        $posts = DB::table('posts')->where('type', 'photo')->get();
+
+        return view('knowledge/photo', ['posts' => $posts]);
+    }
 }
