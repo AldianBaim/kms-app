@@ -23,7 +23,7 @@
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
-                        <form action="{{ url('pengaturan') }}/{{ $user->id }}" method="POST" class="form form-horizontal">
+                        <form action="{{ url('pengaturan') }}/{{ $user->id }}" method="POST" enctype="multipart/form-data" class="form form-horizontal">
                             @method('PUT')
                             @csrf
                             <div class="form-body">
@@ -82,14 +82,12 @@
                                     <div class="col-md-8 mb-2">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" name="avatar" class="form-control @error('avatar') is-invalid @enderror" value="{{ $user->avatar }}" placeholder="" id="first-name-icon">
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-person"></i>
-                                                </div>
+                                                <input class="form-control @error('avatar') is-invalid @enderror" name="avatar" type="file" id="img-source" onchange="previewImage();">
                                             </div>
                                             @error('avatar')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
+                                            <img id="img-preview" src="{{ asset('storage/image/avatar/' . $user->avatar) }}" width="200" class="img-thumbnail" alt="">
                                         </div>
                                     </div>
                                     <div class="col-md-4">

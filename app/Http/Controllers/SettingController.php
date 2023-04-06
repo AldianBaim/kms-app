@@ -38,15 +38,20 @@ class SettingController extends Controller
             'role_name' => 'required',
         ]);
 
+        if ($request->hasFile('avatar')) {
+            $new_avatar = $request->file('avatar')->getClientOriginalName();
+            $request->avatar->storeAs('public/image/avatar', $new_avatar);
+        }
+
+        $current_avatar = User::where('id', $id)->pluck('avatar');
         User::where('id', $id)->update([
             'name' => $request->name,
             'address' => $request->address,
-            'avatar' => $request->avatar,
+            'avatar' => $new_avatar ?? $current_avatar[0],
             'job' => $request->job,
             'email' => $request->email,
             'role_name' => $request->role_name,
         ]);
-
         return redirect('/my-profile');
     }
 }

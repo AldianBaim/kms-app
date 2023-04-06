@@ -18,22 +18,23 @@
         </div>
     </div>
     <section class="my-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-5">
-                <div class="card p-3 border-0 shadow-sm bg-secondary" style="background-color:#eaeaea">
-                    <img src="{{ asset('/image/Group 2.png') }}" class="rounded-circle objectfit-cover mx-auto shadow" alt="Profile">
-                    <div class="text-center my-2">
-                        <h5>{{ $user->name }}</h5>
-                        <h6 class="text-muted">{{ $user->role_name }}</h6>
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    @if($user->avatar)
+                    <img src="{{ asset('storage/image/avatar/' . $user->avatar) }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
+                    @else
+                    <img src="{{ asset('/image/avatar-default.png') }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
+                    @endif
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mb-0">{{ $user->name }}</h5>
+                        <p class="card-text mb-0"><small class="text-muted">{{ $user->role_name }}</small></p>
                         <a href="{{ url('/pengaturan') }}" class="btn btn-sm btn-info text-white my-2"><i class="fa fa-arrows-rotate"></i> Edit Profile</a>
-
-                    </div>
-                    <div class="small">
-                        <div>Alamat : {!! $user->address ? $user->address : '<i>Alamat belum diisi</i>' !!}</div>
-                        <div>Pekerjaan : {!! $user->job ? $user->job : '<i>Pekerjaan belum diisi</i>' !!}</div>
-                        <div class="mb-2">Email : {{ $user->email }}</div>
-                        <div>Biodata : </div>
-                        <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae provident neque, aspernatur similique voluptates aliquam assumenda nobis mollitia fugit saepe?</div>
+                        <p class="card-text m-0">Email : {{ $user->email }}</p>
+                        <p class="card-text m-0">Alamat : {{ $user->address }}</p>
+                        <p class="card-text m-0">Pekerjaan : {{ $user->job }}</p>
                     </div>
                 </div>
             </div>
