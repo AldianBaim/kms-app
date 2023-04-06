@@ -19,9 +19,9 @@
     </div>
     <section>
         <div class="table-responsive">
-            <div class="text-center mb-4">
-                <img src="{{ url('storage/image/avatar/' . $user->avatar) }}" class="img-thumbnail" width="130" alt=""> <br>
-                <a href="{{ url('/pengaturan') }}" class="btn btn-sm btn-info text-white my-2"><i class="fa fa-arrows-rotate"></i> Edit Profile</a>
+            <div class="mb-4">
+                <img src="{{ url('storage/image/avatar/' . $user->avatar) }}" class="img-thumbnail mb-3" width="130" alt=""> <br>
+                <a href="{{ url('/pengaturan') }}" class="my-2"><i class="fa fa-arrows-rotate"></i> Edit Profile</a>
             </div>
             <table class="table">
                 <tr>
