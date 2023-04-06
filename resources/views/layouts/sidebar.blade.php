@@ -27,7 +27,7 @@
         </li>
         <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
             <a href="{{ url('/request') }}" class="link">
-                <img src="{{asset('image/icon/sidebar/request.png')}}" width="25" />
+                <i class="fa fa-fw fa-file-export"></i>
                 <span>Request Materi</span>
             </a>
         </li>
