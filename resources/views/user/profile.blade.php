@@ -17,8 +17,41 @@
             </div>
         </div>
     </div>
-    <section class="my-4">
-        <div class="card mb-3" style="max-width: 540px;">
+    <section>
+        <div class="table-responsive">
+            <div class="text-center mb-4">
+                <img src="{{ url('storage/image/avatar/' . $user->avatar) }}" class="img-thumbnail" width="130" alt=""> <br>
+                <a href="{{ url('/pengaturan') }}" class="btn btn-sm btn-info text-white my-2"><i class="fa fa-arrows-rotate"></i> Edit Profile</a>
+            </div>
+            <table class="table">
+                <tr>
+                    <td width="150">Nama</td>
+                    <td width="10">:</td>
+                    <td>{{ $user->name }}</td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td width="10">:</td>
+                    <td>{{ $user->email }}</td>
+                </tr>
+                <tr>
+                    <td>Alamat</td>
+                    <td width="10">:</td>
+                    <td>{{ $user->address }}</td>
+                </tr>
+                <tr>
+                    <td>Pekerjaan</td>
+                    <td width="10">:</td>
+                    <td>{{ $user->job }}</td>
+                </tr>
+                <tr>
+                    <td>Daftar Sejak</td>
+                    <td width="10">:</td>
+                    <td><span>{{ date('d M Y', strtotime($user->created_at)) }}</span></td>
+                </tr>
+            </table>
+        </div>
+        <!-- <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">
                 <div class="col-md-4">
                     @if($user->avatar)
@@ -38,7 +71,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
 </div>
 
