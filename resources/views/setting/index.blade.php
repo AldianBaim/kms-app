@@ -87,7 +87,7 @@
                                             @error('avatar')
                                             <small class="text-danger">{{ $message }}</small>
                                             @enderror
-                                            <img id="img-preview" src="{{ asset('storage/image/avatar/' . $user->avatar) }}" width="200" class="img-thumbnail" alt="">
+                                            <img id="img-preview" src="{{ $user->avatar ? asset('storage/image/avatar/' . $user->avatar) : asset('/image/avatar-default.png') }}" width="150" class="img-thumbnail my-2">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
