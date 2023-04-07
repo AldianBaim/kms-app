@@ -45,6 +45,8 @@ Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destro
 Route::get('/my-profile', [App\Http\Controllers\UserController::class, 'myProfile']);
 
 Route::get('/request', [App\Http\Controllers\RequestController::class, 'index']);
+Route::get('/request/create', [App\Http\Controllers\RequestController::class, 'create']);
+Route::post('/request/store', [App\Http\Controllers\RequestController::class, 'store']);
 
 Route::get('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'index']);
 Route::post('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'store']);

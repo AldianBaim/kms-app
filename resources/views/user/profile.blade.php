@@ -19,13 +19,16 @@
     </div>
     <section>
         <div class="table-responsive">
-            <div class="text-center mb-4">
+            <div class="mb-4">
                 @if($user->avatar)
                 <img src="{{ url('storage/image/avatar/' . $user->avatar) }}" class="img-thumbnail" width="130" alt=""> <br>
                 @else
                 <img src="{{ url('/image/avatar-default.png') }}" class="img-thumbnail" width="130" alt=""> <br>
                 @endif
-                <a href="{{ url('/pengaturan') }}" class="btn btn-sm btn-info text-white my-2"><i class="fa fa-arrows-rotate"></i> Edit Profile</a>
+
+                <div class="mt-3">
+                    <a href="{{ url('/pengaturan') }}" class="my-2"><i class="fa fa-arrows-rotate"></i> Edit Profile</a>
+                </div>
             </div>
             <table class="table">
                 <tr>

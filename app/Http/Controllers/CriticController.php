@@ -42,6 +42,7 @@ class CriticController extends Controller
         ]);
 
         $request->session()->flash('status', 'Kritik dan saran berhasil diajukan');
+        
         return redirect('/kritik-dan-saran');
     }
 }

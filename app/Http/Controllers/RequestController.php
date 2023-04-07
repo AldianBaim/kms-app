@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RequestController extends Controller
 {
@@ -23,7 +25,9 @@ class RequestController extends Controller
      */
     public function index()
     {
-        return view('request.index');
+        $requests = DB::table('request')->get();
+
+        return view('request.index', ['requests' => $requests]);
     }
 
     /**
@@ -33,7 +37,7 @@ class RequestController extends Controller
      */
     public function create()
     {
-        //
+        return view('request.create');
     }
 
     /**
@@ -44,7 +48,24 @@ class RequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category' => 'required',
+            'destination' => 'required',
+            'detail' => 'required'
+        ]);
+
+        DB::table('request')->insert([
+            'user_id' => Auth::user()->id,
+            'category' => $request->category,
+            'destination' => $request->destination,
+            'detail' => $request->detail,
+            'status' => 'Diajukan',
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+
+        $request->session()->flash('status', 'Permintaan materi berhasil diajukan');
+        
+        return redirect('/request');
     }
 
     /**

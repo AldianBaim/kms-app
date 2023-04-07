@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-8">
             <small>{{ Auth::user()->name }}</small> <br>
-            <small class="text-muted">{{ Auth::user()->role_name }}</small>
+            <small class="text-muted">{{ Auth::user()->job }}</small>
         </div>
     </div>
     <ul class="list-group">
@@ -26,7 +26,7 @@
             </a>
         </li>
         <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
-            <a href="{{ url('/request') }}" class="link">
+            <a href="{{ url('/request/create') }}" class="link">
                 <i class="fa fa-fw fa-file-export"></i>
                 <span>Request Materi</span>
             </a>
@@ -53,6 +53,12 @@
             <a href="{{ url('/knowledge-capturing') }}" class="link">
                 <i class="fa fa-fw fa-book"></i>
                 <span>Knowledge Capturing</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="" class="link">
+                <i class="fa fa-fw fa-file"></i>
+                <span>Berbagi Berkas</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('user') ? 'active' : '' }}">

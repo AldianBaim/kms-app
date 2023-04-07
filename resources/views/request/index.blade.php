@@ -9,50 +9,43 @@
 @endif
 
 <section>
-    <h4>Request Materi</h4>
-    <p><small>Silakan tanyakan dan ajukan materi mengenai Aglaonema yang ingin diketahui. Stakeholder terkait akan membantu kamu mendapatkan jawabannya. Bapak/ibu bisa bertanya mengenai pembibitan, waktu tanam, kondisi cuaca, teknik budidaya, penyakit dan lainnya.</small></p>
+    <h4>Materi Diajukan</h4>
+    <p><small>Berikut adalah daftar permintaan materi yang bapak/ibu kirim.</small></p>
 
-    <form>
+    <div class="my-3 text-end">
+        <a href="{{ url('/request/create') }}" class="btn btn-sm btn-info text-white"><i class="fa fa-plus"></i> Request Baru</a>
+    </div>
 
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Kategori Materi</label>
-            <select name="category" class="form-control">
-                <option value="" selected>Pilih ..</option>
-                <option value="Pembibitan">Pembibitan</option>
-                <option value="Waktu Tanam">Waktu Tanam</option>
-                <option value="Kondisi Cuaca">Kondisi Cuaca</option>
-                <option value="Teknik Budidaya">Teknik Budidaya</option>
-                <option value="Penyakit">Penyakit</option>
-                <option value="Lainnya">Lainnya</option>
-            </select>
-            <div class="form-text">Pilih kategori terkait materi.</div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kategori</th>
+                    <th>Tujuan</th>
+                    <th>Detail</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach ($requests as $index => $request)
+                <tr>
+                    <td>{{ $index+1 }}</td>
+                    <td>{{ $request->category }}</td>
+                    <td>{{ $request->destination }}</td>
+                    <td>{{ $request->detail }}</td>
+                    <td>{{ Str::ucfirst($request->status) }}</td>
+                </tr>
+                @endforeach
+                
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+            
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Ditujukan Kepada</label>
-            <select name="category" class="form-control">
-                <option value="" selected>Pilih ..</option>
-                <option value="Semua">Semua</option>
-                <option value="Dinas Terkait">Dinas Terkait</option>
-                <option value="Rekan Petani">Rekan Petani</option>
-                <option value="Lainnya">Lainnya</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Rincian</label>
-            <textarea class="form-control" name="detail"></textarea>
-            <div class="form-text">Jelaskan materi yang diinginkan lebih rinci lagi</div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Kirim</button>
-            </div>
-            <div class="col">
-                <div class="pull-right">
-                    <a href="#">Riwayat Pengajuan <span class="fa fa-long-arrow-right"></span></a>
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
+    
 </section>
 
 @endsection
