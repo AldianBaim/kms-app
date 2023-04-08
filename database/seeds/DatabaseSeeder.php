@@ -59,6 +59,13 @@ class DatabaseSeeder extends Seeder
                 'subject' => $faker->sentence(),
                 'message' => $faker->text(),
             ]);
+            DB::table('files')->insert([
+                'user_id'    => 1,
+                'title'      => $faker->sentence(),
+                'category'   => 'Lainnya',
+                'attachment' => 'sample.mp4',
+                'created_at' => now(),
+            ]);
         }
     }
 }

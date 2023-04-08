@@ -53,3 +53,8 @@ Route::post('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 
 
 Route::get('/pengaturan', [App\Http\Controllers\SettingController::class, 'index']);
 Route::put('/pengaturan/{id}', [App\Http\Controllers\SettingController::class, 'update']);
+
+Route::get('/berbagi-berkas', [App\Http\Controllers\FileController::class, 'index']);
+Route::post('/berbagi-berkas', [App\Http\Controllers\FileController::class, 'store']);
+Route::put('/berbagi-berkas/{id}', [App\Http\Controllers\FileController::class, 'update']);
+Route::delete('/berbagi-berkas/{id}', [App\Http\Controllers\FileController::class, 'destroy']);
