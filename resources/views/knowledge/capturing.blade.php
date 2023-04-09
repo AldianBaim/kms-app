@@ -48,8 +48,15 @@
                         
                     <td>{{ $post->attachment }}</td>
                     <td>
-                        <a href="{{ url('knowledge/create') }}" class="">Edit</a>
-                        <a href="{{ url('') }}" class="text-danger" onclick="confirm('Serius ingin dihapus?')">Hapus</a>
+                        <div class="dropdown">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              Opsi
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="#">Sunting</a></li>
+                              <li><a class="dropdown-item" href="#">Hapus</a></li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
                 @endforeach
