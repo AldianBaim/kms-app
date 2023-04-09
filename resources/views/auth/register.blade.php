@@ -40,6 +40,21 @@
                             </small>
                             @enderror
                         </div>
+
+                        <div class="form-group mb-4">
+                            <div class="input-group">
+                                <input type="phone" class="form-control border-0 border border-bottom @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus placeholder="Telepon" />
+                                <span class="input-group-text bg-white border-0 border-bottom border-1">
+                                    ☎
+                                </span>
+                            </div>
+                            @error('email')
+                            <small class="text-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </small>
+                            @enderror
+                        </div>
+
                         <div class="form-group mb-4">
                             <div class="input-group">
                                 <input type="password" class="form-control border-0 border border-bottom @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" required autocomplete="password" autofocus placeholder="Kata Sandi" />
