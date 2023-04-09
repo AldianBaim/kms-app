@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class KnowledgeController extends Controller
 {
@@ -24,9 +25,52 @@ class KnowledgeController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->where('type', 'article')->get();
+        $posts = DB::table('posts')->where(['type' => 'article', 'status' => 'Diterima'])->orderBy('id', 'desc')->get();
 
         return view('knowledge/index', ['posts' => $posts]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('knowledge.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required',
+            'cover' => 'required',
+            'content' => 'required',
+            'attachment' => 'required'
+        ]);
+
+        DB::table('posts')->insert([
+            'user_id' => Auth::user()->id,
+            'title' => $request->title,
+            'cover' => $request->cover,
+            'type' => $request->type,
+            'content' => $request->content,
+            'status' => 'Ditunda',
+            'attachment' => $request->attachment,
+            'total_read' => 0,
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+
+        $request->session()->flash('status', 'Konten berhasil dikirim, menunggu approval dari admin.');
+        
+        return redirect('/knowledge/create');
     }
 
     /**

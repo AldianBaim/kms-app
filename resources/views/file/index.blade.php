@@ -32,18 +32,17 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Judul</th>
                     <th>Berkas</th>
+                    <th>Judul</th>
                     <th>Kategori</th>
-                    <th>Ditambah Oleh</th>
-                    <th>Created</th>
-                    <th>Aksi</th>
+                    <th>Oleh</th>
+                    <th>Tanggal</th>
+                    <th>Opsi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($files as $file)
                 <tr>
-                    <td width="250">{{ $file->title }}</td>
                     <td>
                         @if(str_contains($file->attachment, '.mp4'))
                         <a href="{{ url('storage/files/' . $file->attachment) }}" target="_blank">
@@ -59,10 +58,11 @@
                         </a>
                         @else
                         <a href="{{ url('storage/files/' . $file->attachment) }}" target="_blank">
-                            <i class="fa fa-xl fa-file"></i>
+                            <i class="fa fa-xl fa-photo"></i>
                         </a>
                         @endif
                     </td>
+                    <td width="250">{{ $file->title }}</td>
                     <td>{{ $file->category }}</td>
                     <td>{{ $file->user->name }}</td>
                     <td>{{ date('d M Y H:i', strtotime($file->created_at)) }}</td>

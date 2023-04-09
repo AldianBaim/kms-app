@@ -38,7 +38,7 @@
             </a>
         </li>
         <li class="list-group-item {{ request()->is('knowledge-capturing') ? 'active' : '' }}">
-            <a href="{{ url('/knowledge-capturing') }}" class="link">
+            <a href="{{ url('/knowledge/create') }}" class="link">
                 <i class="fa fa-fw fa-pencil"></i>
                 <span>Knowledge Capturing</span>
             </a>

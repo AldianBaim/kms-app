@@ -13,7 +13,7 @@
 
     <div class="mt-5 input-group">
         <input type="text" class="form-control" placeholder="Cari judul yang kamu butuhkan ...">
-        <button class="btn btn-outline-secondary" type="button">Cari</button>
+        <button class="btn btn-success" type="button">Cari</button>
     </div>
 
     <div class="mb-3 mt-3">

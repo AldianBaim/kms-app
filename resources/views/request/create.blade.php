@@ -12,6 +12,17 @@
     <h4>Request Materi</h4>
     <p><small>Silakan tanyakan dan ajukan materi mengenai Aglaonema yang ingin diketahui. Stakeholder terkait akan membantu kamu mendapatkan jawabannya. Bapak/ibu bisa bertanya mengenai pembibitan, waktu tanam, kondisi cuaca, teknik budidaya, penyakit dan lainnya.</small></p>
 
+    <div class="row">
+        <div class="col">
+            
+        </div>
+        <div class="col">
+            <div class="pull-right">
+                <a href="{{ url('request') }}">Riwayat Pengajuan <span class="fa fa-long-arrow-right"></span></a>
+            </div>
+        </div>
+    </div>
+
     <form action="{{ url('request/store') }}" method="POST">
 
         @csrf <!-- {{ csrf_field() }} -->
@@ -44,16 +55,9 @@
             <textarea class="form-control" name="detail"></textarea>
             <div class="form-text">Jelaskan materi yang diinginkan lebih rinci lagi</div>
         </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Kirim</button>
-            </div>
-            <div class="col">
-                <div class="pull-right">
-                    <a href="{{ url('request') }}">Riwayat Pengajuan <span class="fa fa-long-arrow-right"></span></a>
-                </div>
-            </div>
-        </div>
+        
+        <button type="submit" class="btn btn-primary">Kirim</button>
+           
     </form>
 </section>
 

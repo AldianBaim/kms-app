@@ -12,9 +12,32 @@
     <h4>Knowledge Capturing.</h4>
     <p><small>Bapak/ibu dapat membagikan berbagai pengetahuan penting seputar Aglaonema, dalam bentuk sumbangan konten artikel, video, dan audio.</small></p>
 
-    <form action="{{ url('capturing/store') }}" method="POST">
+    <div class="row">
+        <div class="col">
+            
+        </div>
+        <div class="col">
+            <div class="pull-right">
+                <a href="{{ url('knowledge-capturing') }}">Riwayat Kontribusi Konten <span class="fa fa-long-arrow-right"></span></a>
+            </div>
+        </div>
+    </div>
+
+    <form action="{{ url('knowledge/store') }}" method="POST">
 
         @csrf <!-- {{ csrf_field() }} -->
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Judul</label>
+            <input type="text" class="form-control" name="title" />
+            <div class="form-text">Judul materi selengkap-lengkapnya</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Kover</label>
+            <input type="text" class="form-control" name="cover" />
+            <div class="form-text">Kover untuk konten.</div>
+        </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Kategori Materi</label>
@@ -29,31 +52,30 @@
             </select>
             <div class="form-text">Pilih kategori terkait materi.</div>
         </div>
+
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Ditujukan Kepada</label>
-            <select name="destination" class="form-control">
+            <label for="exampleInputEmail1" class="form-label">Tipe Konten</label>
+            <select name="type" class="form-control">
                 <option value="" selected>Pilih ..</option>
-                <option value="Semua">Semua</option>
-                <option value="Dinas Terkait">Dinas Terkait</option>
-                <option value="Rekan Petani">Rekan Petani</option>
-                <option value="Lainnya">Lainnya</option>
+                <option value="article">Artikel</option>
+                <option value="photo">Foto</option>
+                <option value="video">Video</option>
             </select>
+            <div class="form-text">Pilih tipe materi.</div>
         </div>
+
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Rincian</label>
-            <textarea class="form-control" name="detail"></textarea>
+            <label for="exampleInputPassword1" class="form-label">Lampiran</label>
+            <input type="text" class="form-control" name="attachment" />
+            <div class="form-text">Lampiran berkas foto, video.</div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Konten Isi</label>
+            <textarea id="summernote" class="form-control" name="content" rows="5"></textarea>
             <div class="form-text">Jelaskan materi yang diinginkan lebih rinci lagi</div>
         </div>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Kirim</button>
-            </div>
-            <div class="col">
-                <div class="pull-right">
-                    <a href="{{ url('request') }}">Riwayat Pengajuan <span class="fa fa-long-arrow-right"></span></a>
-                </div>
-            </div>
-        </div>
+        <button type="submit" class="btn btn-primary">Kirim</button>
     </form>
 </section>
 

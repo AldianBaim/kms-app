@@ -38,10 +38,10 @@ class FileController extends Controller
                 'title'       => $request->title,
                 'category'    => $request->category,
                 'attachment'  => $attachment,
-                'status'      => 'Ditunda',
+                'status'      => 'Ditunda'
             ]);
 
-            $request->session()->flash('status', 'Berkas baru berhasil ditambahkan. silahkan menunggu untuk approval berkas');
+            $request->session()->flash('status', 'Berkas baru berhasil ditambahkan. Silahkan menunggu untuk persetujuan berkas.');
             return redirect('/berbagi-berkas');
         }
     }
