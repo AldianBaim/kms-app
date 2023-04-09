@@ -8,7 +8,7 @@
 </div>
 @endif
 <section class="p-3">
-    <h4>Informasi.</h4>
+    <h4>Knowledge.</h4>
     <p><small>Pusat informasi mengenai Aglaonema</small></p>
 
     <div class="mt-5 input-group">

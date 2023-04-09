@@ -73,3 +73,13 @@ Route::get('/berbagi-berkas', [App\Http\Controllers\FileController::class, 'inde
 Route::post('/berbagi-berkas', [App\Http\Controllers\FileController::class, 'store']);
 Route::put('/berbagi-berkas/{id}', [App\Http\Controllers\FileController::class, 'update']);
 Route::delete('/berbagi-berkas/{id}', [App\Http\Controllers\FileController::class, 'destroy']);
+
+/**
+ * Message
+ */
+Route::get('/message', [App\Http\Controllers\MessageController::class, 'index']);
+
+/**
+ * Prediction
+ */
+Route::get('/prediction', [App\Http\Controllers\PredictionController::class, 'index']);

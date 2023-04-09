@@ -32,7 +32,7 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="" class="link">
+            <a href="{{ url('/prediction') }}" class="link">
                 <i class="fa fa-fw fa-magnifying-glass"></i>
                 <span>Prediction</span>
             </a>
@@ -74,9 +74,9 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="" class="link">
+            <a href="{{ url('/message') }}" class="link">
                 <i class="fa fa-fw fa-message"></i>
-                <span>Send Message</span>
+                <span>Inbox</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('kritik-dan-saran') ? 'active' : '' }}">
