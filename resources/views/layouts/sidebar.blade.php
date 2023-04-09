@@ -56,7 +56,7 @@
             </a>
         </li>
         <li class="list-group-item">
-            <a href="" class="link">
+            <a href="{{ url('/berbagi-berkas') }}" class="link">
                 <i class="fa fa-fw fa-file"></i>
                 <span>Berbagi Berkas</span>
             </a>
