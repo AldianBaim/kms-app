@@ -22,79 +22,79 @@
         <li class="list-group-item {{ request()->is('knowledge') ? 'active' : '' }}">
             <a href="{{ url('/knowledge') }}" class="link">
                 <i class="fa fa-fw fa-circle-info"></i>
-                <span>Informasi</span>
+                <span>Knowledge</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
             <a href="{{ url('/request/create') }}" class="link">
                 <i class="fa fa-fw fa-file-export"></i>
-                <span>Request Materi</span>
+                <span>Content Request</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="" class="link">
                 <i class="fa fa-fw fa-magnifying-glass"></i>
-                <span>Prediksi</span>
+                <span>Prediction</span>
+            </a>
+        </li>
+        <li class="list-group-item {{ request()->is('knowledge-capturing') ? 'active' : '' }}">
+            <a href="{{ url('/knowledge-capturing') }}" class="link">
+                <i class="fa fa-fw fa-pencil"></i>
+                <span>Knowledge Capturing</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/video') }}" class="link">
                 <i class="fa fa-fw fa-video"></i>
-                <span>Tonton Video</span>
+                <span>Watch Video</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/photo') }}" class="link">
                 <i class="fa fa-fw fa-photo"></i>
-                <span>Galeri Foto</span>
-            </a>
-        </li>
-        <li class="list-group-item {{ request()->is('knowledge-capturing') ? 'active' : '' }}">
-            <a href="{{ url('/knowledge-capturing') }}" class="link">
-                <i class="fa fa-fw fa-book"></i>
-                <span>Knowledge Capturing</span>
+                <span>Photo Gallery</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/berbagi-berkas') }}" class="link">
                 <i class="fa fa-fw fa-file"></i>
-                <span>Berbagi Berkas</span>
+                <span>File Manager</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('user') ? 'active' : '' }}">
             <a href="{{ url('/user') }}" class="link">
                 <i class="fa fa-fw fa-users"></i>
-                <span>Pengguna</span>
+                <span>Users</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/my-profile') }}" class="link">
                 <i class="fa fa-fw fa-user"></i>
-                <span>Profil Saya</span>
+                <span>My Profile</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="" class="link">
                 <i class="fa fa-fw fa-message"></i>
-                <span>Kirim Pesan</span>
+                <span>Send Message</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('kritik-dan-saran') ? 'active' : '' }}">
             <a href="{{ url('/kritik-dan-saran') }}" class="link">
                 <i class="fa-solid fa-fw fa-volume-high"></i>
-                <span>Kritik dan Saran</span>
+                <span>Feedback</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/pengaturan') }}" class="link">
                 <i class="fa fa-fw fa-gear"></i>
-                <span>Pengaturan</span>
+                <span>Setting</span>
             </a>
         </li>
         <li class="list-group-item">
             <a class="link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <i class="fa fa-fw fa-right-from-bracket"></i>
-                <span>Keluar</span>
+                <span>Logout</span>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf

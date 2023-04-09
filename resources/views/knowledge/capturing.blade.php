@@ -7,9 +7,10 @@
     {{ session('status') }}
 </div>
 @endif
+
 <section class="p-3">
     <h4>Knowledge Capturing.</h4>
-    <p><small>Small description about capturing</small></p>
+    <p><small>Bapak/ibu dapat membagikan berbagai pengetahuan penting seputar Aglaonema, dalam bentuk sumbangan konten artikel, video, dan audio.</small></p>
 </section>
 
 @endsection

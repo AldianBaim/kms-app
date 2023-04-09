@@ -29,13 +29,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  * Knowledge.
  */
 Route::get('/knowledge', [App\Http\Controllers\KnowledgeController::class, 'index']);
+Route::get('/knowledge/create', [App\Http\Controllers\KnowledgeController::class, 'create']);
+Route::post('/knowledge/store', [App\Http\Controllers\KnowledgeController::class, 'store']);
 Route::get('/video', [App\Http\Controllers\KnowledgeController::class, 'video']);
 Route::get('/photo', [App\Http\Controllers\KnowledgeController::class, 'photo']);
 Route::get('/knowledge/detail/{id}', [App\Http\Controllers\KnowledgeController::class, 'detail']);
-
-
 Route::get('/knowledge-capturing', [App\Http\Controllers\CapturingController::class, 'index']);
 
+/**
+ * User.
+ */
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
 Route::get('/user/create', [App\Http\Controllers\UserController::class, 'create']);
 Route::get('/user/{id}/edit', [App\Http\Controllers\UserController::class, 'edit']);
@@ -44,16 +47,28 @@ Route::put('/user/{id}', [App\Http\Controllers\UserController::class, 'update'])
 Route::delete('/user/{id}', [App\Http\Controllers\UserController::class, 'destroy']);
 Route::get('/my-profile', [App\Http\Controllers\UserController::class, 'myProfile']);
 
+/**
+ * Request.
+ */
 Route::get('/request', [App\Http\Controllers\RequestController::class, 'index']);
 Route::get('/request/create', [App\Http\Controllers\RequestController::class, 'create']);
 Route::post('/request/store', [App\Http\Controllers\RequestController::class, 'store']);
 
+/**
+ * Feedback.
+ */
 Route::get('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'index']);
 Route::post('/kritik-dan-saran', [App\Http\Controllers\CriticController::class, 'store']);
 
+/**
+ * Setting.
+ */
 Route::get('/pengaturan', [App\Http\Controllers\SettingController::class, 'index']);
 Route::put('/pengaturan/{id}', [App\Http\Controllers\SettingController::class, 'update']);
 
+/**
+ * File Manager.
+ */
 Route::get('/berbagi-berkas', [App\Http\Controllers\FileController::class, 'index']);
 Route::post('/berbagi-berkas', [App\Http\Controllers\FileController::class, 'store']);
 Route::put('/berbagi-berkas/{id}', [App\Http\Controllers\FileController::class, 'update']);
