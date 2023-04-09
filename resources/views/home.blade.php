@@ -7,62 +7,85 @@
     {{ session('status') }}
 </div>
 @endif
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.postimg.cc/vmFqLfsp/KMS-AGLAONEMA.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.postimg.cc/c4f8tnFK/Add-a-heading.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.postimg.cc/wj4Tjjg7/Untitled-design-1.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
 <div class="banner">
-    <img src="{{asset('image/banner.png')}}" class="w-100" alt="" />
+    <img src="" class="w-50" alt="" />
 </div>
 <div class="program my-4">
     <div class="row">
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/siren-ga.png')}}" class="w-75" />
-            <div class="label">SIREN-GA</div>
+            <img src="{{asset('image/icon/content/siren-ga.png')}}" class="w-75 rounded" />
+            <div class="label">PEMBIBITAN</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/ling-ga.png')}}" class="w-75" />
-            <div class="label">LING-GA</div>
+            <img src="{{asset('image/icon/content/ling-ga.png')}}" class="w-75 rounded" />
+            <div class="label">ANGGOTA KOMUNITAS</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/fungsi-ga.png')}}" class="w-75" />
-            <div class="label">FUNGSI-GA</div>
+            <img src="{{asset('image/icon/content/fungsi-ga.png')}}" class="w-75 rounded" />
+            <div class="label">ARTIKEL TERBARU</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/tahan-ga.png')}}" class="w-75" />
-            <div class="label">TAHAN-GA</div>
+            <img src="{{asset('image/icon/content/tahan-ga.png')}}" class="w-75 rounded" />
+            <div class="label">TEKNIK BUDIDAYA</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/aksi-ga.png')}}" class="w-75" />
-            <div class="label">AKSI-GA</div>
+            <img src="{{asset('image/icon/content/aksi-ga.png')}}" class="w-75 rounded" />
+            <div class="label">PENYAKIT AGLAONEMA</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/resiliensi-ga.png')}}" class="w-75" />
-            <div class="label">RESILIENSI-GA</div>
+            <img src="{{asset('image/icon/content/resiliensi-ga.png')}}" class="w-75 rounded" />
+            <div class="label">ANGGOTA TERAKTIF</div>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/siap-ga.png')}}" class="w-75" />
-            <div class="label">SIAP-GA</div>
+            <img src="{{asset('image/icon/content/siap-ga.png')}}" class="w-75 rounded" />
+            <div class="label">KRITIK DAN SARAN</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/nilai-anak.png')}}" class="w-75" />
-            <div class="label">NILAI ANAK</div>
+            <img src="{{asset('image/icon/content/nilai-anak.png')}}" class="w-75 rounded" />
+            <div class="label">PEMBIBITAN</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/perilaku-koping-ketahanan-pangan-keluarga.png')}}" class="w-75" />
+            <img src="{{asset('image/icon/content/perilaku-koping-ketahanan-pangan-keluarga.png')}}" class="w-75 rounded" />
             <div class="label">
-                PERILAKU KOPING KETAHANAN PANGAN KELUARGA
+                PENGEMBANGAN BISNIS
             </div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/tekanan-ekonomi-keluarga-subjektif.png')}}" class="w-75" />
-            <div class="label">TEKANAN EKONOMI KELUARGA SUBJEKTIF</div>
+            <img src="{{asset('image/icon/content/tekanan-ekonomi-keluarga-subjektif.png')}}" class="w-75 rounded" />
+            <div class="label">PREDIKSI HARGA</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/sejahtera-ga.png')}}" class="w-75" />
-            <div class="label">SEJAHTERA-GA</div>
+            <img src="{{asset('image/icon/content/sejahtera-ga.png')}}" class="w-75 rounded rounded" />
+            <div class="label">PERMODALAN</div>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/kehidupan-antar-umat-beragam.png')}}" class="w-75" />
-            <div class="label">KEHADIRAN ANTAR UMAT BERAGAM</div>
+            <img src="{{asset('image/icon/content/kehidupan-antar-umat-beragam.png')}}" class="w-75 rounded" />
+            <div class="label">PESAN MASUK</div>
         </div>
     </div>
 </div>

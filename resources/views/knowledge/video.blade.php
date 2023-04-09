@@ -11,6 +11,15 @@
     <h4>Tonton Video.</h4>
     <p><small>Pelajari Aglaonema melalui video</small></p>
 
+    <div class="mb-3 mt-3">
+        <span class="">Kategori :</span>
+        <a href="#" class="badge bg-warning">Pembibitan</a>
+        <a href="#" class="badge bg-danger">Teknik Budidaya</a>
+        <a href="#" class="badge bg-info">Waktu Tanam</a>
+        <a href="#" class="badge bg-success">Panyakit</a>
+        <a href="#" class="badge bg-dark">Lainnya</a>
+    </div>
+
     <div class="mt-4">
 
         <div class="row">

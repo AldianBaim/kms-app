@@ -16,7 +16,14 @@
         <button class="btn btn-outline-secondary" type="button">Cari</button>
     </div>
 
-    <div class="mt-4">
+    <div class="mb-3 mt-3">
+        <span class="">Kategori :</span>
+        <a href="#"><strong>Pembibitan</strong></a>, 
+        <a href="#"><strong>Teknik Budidaya</strong></a>, 
+        <a href="#"><strong>Waktu Tanam</strong></a>, 
+        <a href="#"><strong>Penyakit</strong></a>, 
+        <a href="#"><strong>Lainnya</strong></a>
+    </div>
 
     @foreach ($posts as $post)
         <div class="mb-2" style="padding:10px 10px 10px 0px;border-bottom:1px solid #dedede;">

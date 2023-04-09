@@ -10,8 +10,9 @@
                     <div class="card p-4 border-0 shadow-sm">
                         <div class="text-center mb-4" style="margin-top: -10vh">
                             <img src="{{ asset('image/icon/sidebar/profile.png') }}" width="80" class="rounded-circle p-3 mb-4 bg-secondary shadow" />
-                            <h4>WELCOME</h4>
-                            <h6 class="text-muted">Sign in to KMS APP</h6>
+                            <h4>KMS Aglaonema</h4>
+                            <h6 class="text-muted">Selamat datang! Masuk dan temukan berbagai informasi dan wawasan penting seputar Aglaonema.</h6>
+                            <img src="https://i.postimg.cc/Kjc1hkDj/aglaonema.jpg" class="w-50"/>
                         </div>
                         <div class="form-group mb-4">
                             <div class="input-group">
@@ -28,7 +29,7 @@
                         </div>
                         <div class="form-group">
                             <div class="input-group mb-3">
-                                <input class="form-control border-0 border border-bottom @error('email') is-invalid @enderror" id="password" type="password" name="password" required placeholder="Password" />
+                                <input class="form-control border-0 border border-bottom @error('email') is-invalid @enderror" id="password" type="password" name="password" required placeholder="Kata Sandi" />
                                 <span class="input-group-text bg-white border-0 border-bottom border-1">
                                     🔒
                                 </span>
@@ -41,13 +42,13 @@
                         </div>
                     </div>
                     <div class="d-grid mt-3">
-                        <button type="submit" class="btn btn-danger shadow-sm">LOGIN</button>
+                        <button type="submit" class="btn btn-danger shadow-sm">Masuk</button>
                     </div>
                 </form>
                 <div class="text-center mt-4 small">
-                    Don't have account?
+                    Belum punya akun?
                     <a href="{{ route('register') }}" class="text-decoration-none">
-                        Register here
+                        Daftar disini
                     </a>
                 </div>
             </div>
