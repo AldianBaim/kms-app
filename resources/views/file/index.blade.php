@@ -14,20 +14,28 @@
 
     <div class="table-responsive my-5">
         <div class="d-flex justify-content-between mb-3">
-            <div class="dropdown">
-                <button class="btn btn-sm btn-info text-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa fa-filter"></i> Filter
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+            <div class="d-flex flex-column">
+                <div class="mb-2">
+                    <span class="">Kategori :</span>
+                    <a href="#" class="badge bg-warning">Pembibitan</a>
+                    <a href="#" class="badge bg-danger">Teknik Budidaya</a>
+                    <a href="#" class="badge bg-info">Waktu Tanam</a>
+                    <a href="#" class="badge bg-success">Panyakit</a>
+                    <a href="#" class="badge bg-dark">Lainnya</a>
+                </div>
+                <div>
+                    <span class="">Tipe Berkas :</span>
+                    <a href="#" class="badge bg-danger">PDF</a>
+                    <a href="#" class="badge bg-primary">DOC/DOCX</a>
+                    <a href="#" class="badge bg-success">MP4</a>
+                </div>
             </div>
-            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                <i class="fa fa-fw fa-upload"></i>
-                Unggah Berkas
-            </button>
+            <div>
+                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                    <i class="fa fa-fw fa-upload"></i>
+                    Unggah Berkas
+                </button>
+            </div>
         </div>
         <table class="table table-hover">
             <thead>

@@ -18,33 +18,38 @@
         </div>
     </div>
     <section class="section">
-        <div class="my-3 text-end">
+        <!-- <div class="my-3 text-end">
             <a href="{{ url('/user/create') }}" class="btn btn-sm btn-info text-white"><i class="fa fa-plus"></i> Tambah user</a>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-bordered">
+        </div> -->
+        <div class="table-responsive my-3">
+            <table class="table table-bordered align-middle">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>Avatar</th>
                         <th>Nama</th>
-                        <th>Email</th>
-                        <th>Action</th>
+                        <th>Peran</th>
+                        <th>Pekerjaan</th>
+                        <th>Pesan</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                     <tr>
-                        <td>{{$loop->iteration}}</td>
+                        <td width="100"><img src="https://www.gravatar.com/avatar/94d093eda664addd6e450d7e9881bcad?s=32&d=mp&r=PG" width="50" alt=""></td>
                         <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>
+                        <td>{{$user->role_name}}</td>
+                        <td>{!! $user->job ?? '<i>Pekerjaan belum diisi</i>' !!}</td>
+                        <td width="140">
+                            <a href="" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-open-text"></i> Kirim Pesan</a>
+                        </td>
+                        <!-- <td>
                             <a href="{{ url('user/'. $user->id . '/edit') }}" class="badge bg-primary"><i class="fa fa-pencil"></i></a>
                             <form action="{{ url('user/' . $user->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" onclick="return confirm('Apakah anda yakin akan dihapus?')" class="badge bg-danger" style="border: 0px"><i class="fa fa-trash"></i></button>
                             </form>
-                        </td>
+                        </td> -->
                     </tr>
                     @endforeach
                 </tbody>
