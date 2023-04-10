@@ -12,7 +12,7 @@
     <p><small>Pusat informasi mengenai Aglaonema</small></p>
 
     <div class="mt-5 input-group">
-        <input type="text" class="form-control" placeholder="Cari judul yang kamu butuhkan ...">
+        <input type="text" id="search" class="form-control" placeholder="Cari judul yang kamu butuhkan ...">
         <button class="btn btn-success" type="button">Cari</button>
     </div>
 
@@ -24,9 +24,9 @@
         <a href="#"><strong>Penyakit</strong></a>, 
         <a href="#"><strong>Lainnya</strong></a>
     </div>
-
+ 
     @foreach ($posts as $post)
-        <div class="mb-2" style="padding:10px 10px 10px 0px;border-bottom:1px solid #dedede;">
+        <div class="mb-2 content" style="padding:10px 10px 10px 0px;border-bottom:1px solid #dedede;">
             <a href="{{ url('knowledge/detail/' . $post->id) }}">{{ $post->title }}</a>
 
             <p class="mt-2">{!! Str::words($post->content, 20, '..') !!}</p>
@@ -37,7 +37,6 @@
         </div>
     @endforeach
 
-    </div>
 </section>
 
 @endsection

@@ -76,6 +76,15 @@
         $(document).ready(function() {
             $('#summernote').summernote();
         });
+
+        $("#search").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".content").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+
+</script> 
     </script>
     @stack('script')
 </body>
