@@ -68,7 +68,7 @@ class KnowledgeController extends Controller
         DB::table('posts')->insert([
             'user_id' => Auth::user()->id,
             'title' => $request->title,
-            'cover' => $request->cover,
+            'cover' => $cover,
             'type' => $request->type,
             'content' => $request->content,
             'status' => 'Ditunda',
