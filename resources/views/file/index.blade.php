@@ -54,19 +54,19 @@
                     <td>
                         @if(str_contains($file->attachment, '.mp4'))
                         <a href="{{ url('storage/files/' . $file->attachment) }}" target="_blank">
-                            <i class="fa fa-xl fa-file-video text-warning"></i>
+                            <i class="fa fa-xl fa-fw fa-file-video text-warning"></i>
                         </a>
                         @elseif(str_contains($file->attachment, '.pdf'))
                         <a href="{{ url('storage/files/' . $file->attachment) }}" target="_blank">
-                            <i class="fa fa-xl fa-file-pdf text-danger"></i>
+                            <i class="fa fa-xl fa-fw fa-file-pdf text-danger"></i>
                         </a>
                         @elseif(str_contains($file->attachment, 'doc') || str_contains($file->attachment, '.docx'))
                         <a href="{{ url('storage/files/' . $file->attachment) }}" target="_blank">
-                            <i class="fa fa-xl fa-file-word text-primary"></i>
+                            <i class="fa fa-xl fa-fw fa-file-word text-primary"></i>
                         </a>
                         @else
                         <a href="{{ url('storage/files/' . $file->attachment) }}" target="_blank">
-                            <i class="fa fa-xl fa-photo"></i>
+                            <i class="fa fa-xl fa-fw fa-photo"></i>
                         </a>
                         @endif
                     </td>
