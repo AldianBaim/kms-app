@@ -11,7 +11,9 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://i.postimg.cc/vmFqLfsp/KMS-AGLAONEMA.png" class="d-block w-100" alt="...">
+        
+        <!--https://i.postimg.cc/vmFqLfsp/KMS-AGLAONEMA.png-->
+        <img src="https://i.postimg.cc/ncdjbvdm/ezgif-5-8008c95fe4.png" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
         <img src="https://i.postimg.cc/c4f8tnFK/Add-a-heading.png" class="d-block w-100" alt="...">
