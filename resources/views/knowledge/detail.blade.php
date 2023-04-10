@@ -12,7 +12,7 @@
     <h4>{{ $post->title }}</h4>
     <small><b>{{ $post->total_read }}</b> kali dibaca</small> . <small>Dibuat pada {{ $post->created_at }}</small>
    
-    <div class="mt-4"><p>{{ $post->content }}</p></div>
+    <div class="mt-4"><p>{!! $post->content !!}</p></div>
 
     <div id="disqus_thread"></div>
     <script>
