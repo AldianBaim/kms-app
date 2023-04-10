@@ -91,6 +91,9 @@ class KnowledgeController extends Controller
     {
         $post = DB::table('posts')->where('id', $id)->first();
 
+        // Increase 1 read.
+        DB::table('posts')->where('id', $id)->increment('total_read');
+
         return view('knowledge/detail', ['post' => $post]);
     }
 
