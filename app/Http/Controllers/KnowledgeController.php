@@ -56,6 +56,15 @@ class KnowledgeController extends Controller
             'attachment' => 'required'
         ]);
 
+        if ($request->hasFile('attachment')) {
+            $attachment = $request->file('attachment')->getClientOriginalName();
+            $request->attachment->storeAs('public/files/knowledge', $attachment);
+        }
+        if ($request->hasFile('cover')) {
+            $cover = $request->file('cover')->getClientOriginalName();
+            $request->cover->storeAs('public/files/knowledge', $cover);
+        }
+
         DB::table('posts')->insert([
             'user_id' => Auth::user()->id,
             'title' => $request->title,
@@ -63,13 +72,13 @@ class KnowledgeController extends Controller
             'type' => $request->type,
             'content' => $request->content,
             'status' => 'Ditunda',
-            'attachment' => $request->attachment,
+            'attachment' => $attachment,
             'total_read' => 0,
             'created_at' => date('Y-m-d H:i:s')
         ]);
 
         $request->session()->flash('status', 'Konten berhasil dikirim, menunggu approval dari admin.');
-        
+
         return redirect('/knowledge/create');
     }
 
@@ -81,7 +90,7 @@ class KnowledgeController extends Controller
     public function detail($id)
     {
         $post = DB::table('posts')->where('id', $id)->first();
-        
+
         return view('knowledge/detail', ['post' => $post]);
     }
 

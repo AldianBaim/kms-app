@@ -14,7 +14,7 @@
 
     <div class="row">
         <div class="col">
-            
+
         </div>
         <div class="col">
             <div class="pull-right">
@@ -23,25 +23,25 @@
         </div>
     </div>
 
-    <form action="{{ url('knowledge/store') }}" method="POST">
+    <form action="{{ url('knowledge/store') }}" enctype="multipart/form-data" method="POST">
 
         @csrf <!-- {{ csrf_field() }} -->
 
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Judul</label>
-            <input type="text" class="form-control" name="title" />
+            <input type="text" class="form-control" name="title" required />
             <div class="form-text">Judul materi selengkap-lengkapnya</div>
         </div>
 
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Kover</label>
-            <input type="text" class="form-control" name="cover" />
+            <input type="file" class="form-control" name="cover" required />
             <div class="form-text">Kover untuk konten.</div>
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Kategori Materi</label>
-            <select name="category" class="form-control">
+            <select name="category" class="form-control" required>
                 <option value="" selected>Pilih ..</option>
                 <option value="Pembibitan">Pembibitan</option>
                 <option value="Waktu Tanam">Waktu Tanam</option>
@@ -55,7 +55,7 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Tipe Konten</label>
-            <select name="type" class="form-control">
+            <select name="type" class="form-control" required>
                 <option value="" selected>Pilih ..</option>
                 <option value="article">Artikel</option>
                 <option value="photo">Foto</option>
@@ -66,13 +66,13 @@
 
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Lampiran</label>
-            <input type="text" class="form-control" name="attachment" />
+            <input type="file" class="form-control" name="attachment" required />
             <div class="form-text">Lampiran berkas foto, video.</div>
         </div>
-        
+
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Konten Isi</label>
-            <textarea id="summernote" class="form-control" name="content" rows="5"></textarea>
+            <textarea id="summernote" class="form-control" name="content" rows="5" required></textarea>
             <div class="form-text">Jelaskan materi yang diinginkan lebih rinci lagi</div>
         </div>
         <button type="submit" class="btn btn-primary">Kirim</button>
