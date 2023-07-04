@@ -1,0 +1,11 @@
+
+
+/**
+ * Route for {{ plural }}
+ */
+Route::get('/admin/{{ plural }}', [App\Http\Controllers\Admin\{{ title }}Controller::class, 'index']);
+Route::get('/admin/{{ plural }}/create', [App\Http\Controllers\Admin\{{ title }}Controller::class, 'create']);
+Route::get('/admin/{{ plural }}/edit/{id}', [App\Http\Controllers\Admin\{{ title }}Controller::class, 'edit']);
+Route::post('/admin/{{ plural }}/update', [App\Http\Controllers\Admin\{{ title }}Controller::class, 'update']);
+Route::post('/admin/{{ plural }}/store', [App\Http\Controllers\Admin\{{ title }}Controller::class, 'store']);
+Route::get('/admin/{{ plural }}/delete/{id}', [App\Http\Controllers\Admin\{{ title }}Controller::class, 'delete']);

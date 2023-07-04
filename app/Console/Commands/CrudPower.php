@@ -54,19 +54,24 @@ class CrudPower extends Command
 
     protected function generateRoute($tableName)
     {
-        $folderName = $tableName;
-        $fileName = ucfirst($folderName);
+        // Take sample stub.
+        $contents = file_get_contents(resource_path("stubs/route.stub"));
 
-        /*
-        $content = "
-        Route::get('/admin/{$folderName}', [App\Http\Controllers\Admin\{$fileName}Controller::class, 'index']);
-        Route::get('/admin/{$folderName}/create', [App\Http\Controllers\Admin\{$fileName}Controller::class, 'create']);
-        Route::get('/admin/{$folderName}/edit/{id}', [App\Http\Controllers\Admin\{$fileName}Controller::class, 'edit']);
-        Route::post('/admin/{$folderName}/update', [App\Http\Controllers\Admin\{$fileName}Controller::class, 'update']);
-        Route::post('/admin/{$folderName}/store', [App\Http\Controllers\Admin\{$fileName}Controller::class, 'store']);
-        Route::get('/admin/{$folderName}/delete/{id}', [App\Http\Controllers\Admin\{$fileName}Controller::class, 'delete']);";
+        // Init
+        $plural = Str::plural($tableName);
+        $title = ucfirst($plural);
+
+        // Replace string.
+        $template = str_replace([
+            '{{ title }}',
+            '{{ plural }}'
+         ],
+         [
+            $title,
+            $plural
+         ], $contents);
         
-        File::append(base_path('routes/web.php'), $content); */
+        File::append(base_path('routes/web.php'), $template);
     }
 
     protected function generateController($tableName)
@@ -84,12 +89,12 @@ class CrudPower extends Command
             '{{ title }}',
             '{{ plural }}',
             '{{ singular }}'
-         ],
-         [
+        ],
+        [
             $title,
             $plural,
             $singular
-         ], $contents);
+        ], $contents);
 
         // Create new file.
         file_put_contents(app_path("/Http/Controllers/Admin/{$title}Controller.php"), $template);
