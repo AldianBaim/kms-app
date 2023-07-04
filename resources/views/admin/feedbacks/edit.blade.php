@@ -18,20 +18,14 @@
 
         <input type="hidden" class="form-control" name="id" value="{{ $feedback->id }}" required />
 
-        
-		<div class="mb-3">
-			<label for="User id" class="form-label">User id</label>
-			<input type="number" class="form-control" value="{{ $feedback->user_id }}" name="user_id" required />
-			<div class="form-text">Penjelasan tentang User id</div>
-		</div>
-		<div class="mb-3">
+        <div class="mb-3">
 			<label for="Subject" class="form-label">Subject</label>
 			<input type="text" class="form-control" value="{{ $feedback->subject }}" name="subject" required />
 			<div class="form-text">Penjelasan tentang Subject</div>
 		</div>
 		<div class="mb-3">
 			<label for="Message" class="form-label">Message</label>
-			<input type="text" class="form-control" value="{{ $feedback->message }}" name="message" required />
+			<textarea type="text" class="form-control" name="message" required>{{ $feedback->message }}</textarea>
 			<div class="form-text">Penjelasan tentang Message</div>
 		</div>
         

@@ -40,8 +40,7 @@ class UsersController extends Controller
 
         $post['avatar'] = $avatar;
         $post['created_at'] = date('Y-m-d H:i:s');
-        $post['user_id'] = Auth::user()->id;
-
+        
         DB::table('users')->insert($post);
     
         $request->session()->flash('status', 'Successfully added.');

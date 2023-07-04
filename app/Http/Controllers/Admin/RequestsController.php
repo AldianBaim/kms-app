@@ -16,7 +16,7 @@ class RequestsController extends Controller
 
     public function index()
     {
-        $requests = DB::table('requests')->select('requests.*', 'users.name')->join('users', 'users.id', '=', 'requests.user_id')->where('requests.deleted_at', null)->orderBy('requests.id', 'desc')->paginate(10);
+        $requests = DB::table('request')->select('request.*', 'users.name')->join('users', 'users.id', '=', 'request.user_id')->where('request.deleted_at', null)->orderBy('request.id', 'desc')->paginate(10);
 
         return view('admin/requests/index', compact('requests'));
     }
@@ -37,7 +37,7 @@ class RequestsController extends Controller
         $post['created_at'] = date('Y-m-d H:i:s');
         $post['user_id'] = Auth::user()->id;
 
-        DB::table('requests')->insert($post);
+        DB::table('request')->insert($post);
     
         $request->session()->flash('status', 'Successfully added.');
 
@@ -46,7 +46,7 @@ class RequestsController extends Controller
 
     public function edit($id)
     {
-        $request = DB::table('requests')->where('id', $id)->first();
+        $request = DB::table('request')->where('id', $id)->first();
         $users = DB::table('users')->get();
         
         return view('admin/requests/edit', compact('request', 'users'));
@@ -61,7 +61,7 @@ class RequestsController extends Controller
 
         $post['updated_at'] = date('Y-m-d H:i:s');
 
-        DB::table('requests')->where('id', $post['id'])->update($post);
+        DB::table('request')->where('id', $post['id'])->update($post);
     
         $request->session()->flash('status', 'Successfully updated.');
 
@@ -74,7 +74,7 @@ class RequestsController extends Controller
 
     public function delete($id, Request $request)
     {
-        DB::table('requests')->where('id', $id)
+        DB::table('request')->where('id', $id)
                                  ->update(['deleted_at' => date('Y-m-d H:i:s')]);
 
         $request->session()->flash('status', 'Deleted.');

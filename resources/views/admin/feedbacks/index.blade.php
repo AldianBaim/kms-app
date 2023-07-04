@@ -19,11 +19,6 @@
                 <button class="btn btn-info text-white" type="button">Search</button>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="text-end">
-                <a href="{{ url('/admin/feedbacks/create') }}" class="btn btn-info text-white"><i class="fa fa-plus"></i> New Feedbacks</a>
-            </div>
-        </div>
     </div>
 
     <div class="table-responsive">
