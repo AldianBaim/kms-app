@@ -58,7 +58,7 @@
         <li class="list-group-item">
             <a href="{{ url('/berbagi-berkas') }}" class="link">
                 <i class="fa fa-fw fa-file"></i>
-                <span>File Manager</span>
+                <span>File Sharing</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('user') ? 'active' : '' }}">
