@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class FilesController extends Controller
+class PostsController extends Controller
 {
     public function __construct()
     {
@@ -16,15 +16,14 @@ class FilesController extends Controller
 
     public function index()
     {
-        $files = DB::table('files')->select('files.*', 'users.name')->join('users', 'users.id', '=', 'files.user_id')->where('files.deleted_at', null)->orderBy('files.id', 'desc')->paginate(10);
-
-        return view('admin/files/index', compact('files'));
+        $posts = DB::table('posts')->select('posts.*', 'users.name')->join('users', 'users.id', '=', 'posts.user_id')->where('posts.deleted_at', null)->orderBy('posts.id', 'desc')->paginate(10);
+        return view('admin/posts/index', compact('posts'));
     }
 
     public function create()
     {
         $users = DB::table('users')->get();
-        return view('admin/files/create', compact('users'));
+        return view('admin/posts/create', compact('users'));
     }
 
     public function store(Request $request)
@@ -33,29 +32,33 @@ class FilesController extends Controller
 
         if ($request->hasFile('attachment')) {
             $attachment = $request->file('attachment')->getClientOriginalName();
-            $request->attachment->storeAs('public/files/file', $attachment);
+            $request->attachment->storeAs('public/files/knowledge', $attachment);
+        }
+        if ($request->hasFile('cover')) {
+            $cover = $request->file('cover')->getClientOriginalName();
+            $request->cover->storeAs('public/files/knowledge', $cover);
         }
 
         unset($post['_token']);
         unset($post['save']);
 
         $post['attachment'] = $attachment;
+        $post['cover'] = $cover;
         $post['created_at'] = date('Y-m-d H:i:s');
         $post['user_id'] = Auth::user()->id;
 
-        DB::table('files')->insert($post);
+        DB::table('posts')->insert($post);
     
         $request->session()->flash('status', 'Successfully added.');
 
-        return redirect('/admin/files');
+        return redirect('/admin/posts');
     }
 
     public function edit($id)
     {
-        $file = DB::table('files')->where('id', $id)->first();
-        $users = DB::table('users')->get();
+        $post = DB::table('posts')->where('id', $id)->first();
         
-        return view('admin/files/edit', compact('file', 'users'));
+        return view('admin/posts/edit', compact('post'));
     }
 
     public function update(Request $request)
@@ -64,8 +67,13 @@ class FilesController extends Controller
 
         if ($request->hasFile('attachment')) {
             $attachment = $request->file('attachment')->getClientOriginalName();
-            $request->attachment->storeAs('public/files/file', $attachment);
+            $request->attachment->storeAs('public/files/knowledge', $attachment);
             $post['attachment'] = $attachment;
+        }
+        if ($request->hasFile('cover')) {
+            $cover = $request->file('cover')->getClientOriginalName();
+            $request->cover->storeAs('public/files/knowledge', $cover);
+            $post['cover'] = $cover;
         }
 
         unset($post['_token']);
@@ -73,12 +81,12 @@ class FilesController extends Controller
 
         $post['updated_at'] = date('Y-m-d H:i:s');
 
-        DB::table('files')->where('id', $post['id'])->update($post);
+        DB::table('posts')->where('id', $post['id'])->update($post);
     
         $request->session()->flash('status', 'Successfully updated.');
 
         if ($request->post('save') == 'save') {
-            return redirect('/admin/files');
+            return redirect('/admin/posts');
         }
 
         return back();
@@ -86,11 +94,11 @@ class FilesController extends Controller
 
     public function delete($id, Request $request)
     {
-        DB::table('files')->where('id', $id)
+        DB::table('posts')->where('id', $id)
                                  ->update(['deleted_at' => date('Y-m-d H:i:s')]);
 
         $request->session()->flash('status', 'Deleted.');
 
-        return redirect('/admin/files');        
+        return redirect('/admin/posts');        
     }
 }

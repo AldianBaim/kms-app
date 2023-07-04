@@ -113,3 +113,44 @@ Route::get('/admin/files/edit/{id}', [App\Http\Controllers\Admin\FilesController
 Route::post('/admin/files/update', [App\Http\Controllers\Admin\FilesController::class, 'update']);
 Route::post('/admin/files/store', [App\Http\Controllers\Admin\FilesController::class, 'store']);
 Route::get('/admin/files/delete/{id}', [App\Http\Controllers\Admin\FilesController::class, 'delete']);
+
+
+/**
+ * Route for posts
+ */
+Route::get('/admin/posts', [App\Http\Controllers\Admin\PostsController::class, 'index']);
+Route::get('/admin/posts/create', [App\Http\Controllers\Admin\PostsController::class, 'create']);
+Route::get('/admin/posts/edit/{id}', [App\Http\Controllers\Admin\PostsController::class, 'edit']);
+Route::post('/admin/posts/update', [App\Http\Controllers\Admin\PostsController::class, 'update']);
+Route::post('/admin/posts/store', [App\Http\Controllers\Admin\PostsController::class, 'store']);
+Route::get('/admin/posts/delete/{id}', [App\Http\Controllers\Admin\PostsController::class, 'delete']);
+
+/**
+ * Route for requests
+ */
+Route::get('/admin/requests', [App\Http\Controllers\Admin\RequestsController::class, 'index']);
+Route::get('/admin/requests/create', [App\Http\Controllers\Admin\RequestsController::class, 'create']);
+Route::get('/admin/requests/edit/{id}', [App\Http\Controllers\Admin\RequestsController::class, 'edit']);
+Route::post('/admin/requests/update', [App\Http\Controllers\Admin\RequestsController::class, 'update']);
+Route::post('/admin/requests/store', [App\Http\Controllers\Admin\RequestsController::class, 'store']);
+Route::get('/admin/requests/delete/{id}', [App\Http\Controllers\Admin\RequestsController::class, 'delete']);
+
+/**
+ * Route for users
+ */
+Route::get('/admin/users', [App\Http\Controllers\Admin\UsersController::class, 'index']);
+Route::get('/admin/users/create', [App\Http\Controllers\Admin\UsersController::class, 'create']);
+Route::get('/admin/users/edit/{id}', [App\Http\Controllers\Admin\UsersController::class, 'edit']);
+Route::post('/admin/users/update', [App\Http\Controllers\Admin\UsersController::class, 'update']);
+Route::post('/admin/users/store', [App\Http\Controllers\Admin\UsersController::class, 'store']);
+Route::get('/admin/users/delete/{id}', [App\Http\Controllers\Admin\UsersController::class, 'delete']);
+
+/**
+ * Route for feedbacks
+ */
+Route::get('/admin/feedbacks', [App\Http\Controllers\Admin\FeedbacksController::class, 'index']);
+Route::get('/admin/feedbacks/create', [App\Http\Controllers\Admin\FeedbacksController::class, 'create']);
+Route::get('/admin/feedbacks/edit/{id}', [App\Http\Controllers\Admin\FeedbacksController::class, 'edit']);
+Route::post('/admin/feedbacks/update', [App\Http\Controllers\Admin\FeedbacksController::class, 'update']);
+Route::post('/admin/feedbacks/store', [App\Http\Controllers\Admin\FeedbacksController::class, 'store']);
+Route::get('/admin/feedbacks/delete/{id}', [App\Http\Controllers\Admin\FeedbacksController::class, 'delete']);

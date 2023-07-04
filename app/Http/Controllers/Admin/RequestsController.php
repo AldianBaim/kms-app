@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class FilesController extends Controller
+class RequestsController extends Controller
 {
     public function __construct()
     {
@@ -16,69 +16,57 @@ class FilesController extends Controller
 
     public function index()
     {
-        $files = DB::table('files')->select('files.*', 'users.name')->join('users', 'users.id', '=', 'files.user_id')->where('files.deleted_at', null)->orderBy('files.id', 'desc')->paginate(10);
+        $requests = DB::table('requests')->select('requests.*', 'users.name')->join('users', 'users.id', '=', 'requests.user_id')->where('requests.deleted_at', null)->orderBy('requests.id', 'desc')->paginate(10);
 
-        return view('admin/files/index', compact('files'));
+        return view('admin/requests/index', compact('requests'));
     }
 
     public function create()
     {
         $users = DB::table('users')->get();
-        return view('admin/files/create', compact('users'));
+        return view('admin/requests/create', compact('users'));
     }
 
     public function store(Request $request)
     {
         $post = $request->post();
 
-        if ($request->hasFile('attachment')) {
-            $attachment = $request->file('attachment')->getClientOriginalName();
-            $request->attachment->storeAs('public/files/file', $attachment);
-        }
-
         unset($post['_token']);
         unset($post['save']);
 
-        $post['attachment'] = $attachment;
         $post['created_at'] = date('Y-m-d H:i:s');
         $post['user_id'] = Auth::user()->id;
 
-        DB::table('files')->insert($post);
+        DB::table('requests')->insert($post);
     
         $request->session()->flash('status', 'Successfully added.');
 
-        return redirect('/admin/files');
+        return redirect('/admin/requests');
     }
 
     public function edit($id)
     {
-        $file = DB::table('files')->where('id', $id)->first();
+        $request = DB::table('requests')->where('id', $id)->first();
         $users = DB::table('users')->get();
         
-        return view('admin/files/edit', compact('file', 'users'));
+        return view('admin/requests/edit', compact('request', 'users'));
     }
 
     public function update(Request $request)
     {
         $post = $request->post();
 
-        if ($request->hasFile('attachment')) {
-            $attachment = $request->file('attachment')->getClientOriginalName();
-            $request->attachment->storeAs('public/files/file', $attachment);
-            $post['attachment'] = $attachment;
-        }
-
         unset($post['_token']);
         unset($post['save']);
 
         $post['updated_at'] = date('Y-m-d H:i:s');
 
-        DB::table('files')->where('id', $post['id'])->update($post);
+        DB::table('requests')->where('id', $post['id'])->update($post);
     
         $request->session()->flash('status', 'Successfully updated.');
 
         if ($request->post('save') == 'save') {
-            return redirect('/admin/files');
+            return redirect('/admin/requests');
         }
 
         return back();
@@ -86,11 +74,11 @@ class FilesController extends Controller
 
     public function delete($id, Request $request)
     {
-        DB::table('files')->where('id', $id)
+        DB::table('requests')->where('id', $id)
                                  ->update(['deleted_at' => date('Y-m-d H:i:s')]);
 
         $request->session()->flash('status', 'Deleted.');
 
-        return redirect('/admin/files');        
+        return redirect('/admin/requests');        
     }
 }

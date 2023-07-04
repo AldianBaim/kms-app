@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="p-3">
-    <h4>Manage Files</h4>
+    <h4>Manage Requests</h4>
     <p><small>Disini deskripsi list apa nya.</small></p>
 
     @if (session('status'))
@@ -21,7 +21,7 @@
         </div>
         <div class="col-md-6">
             <div class="text-end">
-                <a href="{{ url('/admin/files/create') }}" class="btn btn-info text-white"><i class="fa fa-plus"></i> New Files</a>
+                <a href="{{ url('/admin/requests/create') }}" class="btn btn-info text-white"><i class="fa fa-plus"></i> New Requests</a>
             </div>
         </div>
     </div>
@@ -34,9 +34,9 @@
                 <tr>
                     <th>Id</th>
                     <th>User</th>
-                    <th>Title</th>
                     <th>Category</th>
-                    <th>Attachment</th>
+                    <th>Destination</th>
+                    <th>Detail</th>
                     <th>Status</th>
                     <th>Created at</th>
                     <th>Opsi</th>
@@ -44,22 +44,22 @@
             </thead>
             <tbody class="content">
 
-                @foreach ($files as $file)
+                @foreach ($requests as $request)
                 <tr>
-                    <td>{{ $file->id }}</td>
-                    <td>{{ $file->name }}</td>
-                    <td>{{ $file->title }}</td>
-                    <td>{{ $file->category }}</td>
-                    <td><a href="{{ url('storage/files/file/' . $file->attachment) }}" target="_blank"><i class="fa fa-file"></i> See attachment</a></td>
+                    <td>{{ $request->id }}</td>
+                    <td>{{ $request->name }}</td>
+                    <td>{{ $request->category }}</td>
+                    <td>{{ $request->destination }}</td>
+                    <td>{{ $request->detail }}</td>
                     <td>
-                        @if($file->status == 'Ditunda')
-                            <span class="badge bg-warning">{{ $file->status }}</span>
-                        @elseif($file->status == 'Diterima')
-                            <span class="badge bg-success">{{ $file->status }}</span>
+                        @if($request->status == 'Diajukan')
+                            <span class="badge bg-warning">{{ $request->status }}</span>
+                        @elseif($request->status == 'Dijawab')
+                            <span class="badge bg-success">{{ $request->status }}</span>
                         @endif
                     </td>
-                    <td>{{ $file->created_at }}</td>
-                    <td><a href="{{ url('admin/files/edit/'. $file->id) }}">Edit<a> . <a onclick="return confirm('This record will be deleted, sure?')" href="{{ url('admin/files/delete/'. $file->id) }}">Delete<a></td>
+                    <td>{{ $request->created_at }}</td>
+                    <td><a href="{{ url('admin/requests/edit/'. $request->id) }}">Edit<a> . <a onclick="return confirm('This record will be deleted, sure?')" href="{{ url('admin/requests/delete/'. $request->id) }}">Delete<a></td>
                 </tr>
 
                 @endforeach
@@ -68,7 +68,7 @@
         </table>
 
         <div class="d-flex justify-content-center">
-            {{ $files->links() }}
+            {{ $requests->links() }}
         </div>
     </div>
 

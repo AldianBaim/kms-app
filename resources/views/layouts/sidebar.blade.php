@@ -23,13 +23,13 @@
             </a>
         </li>
         <li class="list-group-item {{ request()->is('knowledge') ? 'active' : '' }}">
-            <a href="{{ url('/knowledge') }}" class="link">
+            <a href="{{ url('/admin/posts') }}" class="link">
                 <i class="fa fa-fw fa-circle-info"></i>
                 <span>Manage Knowledge</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
-            <a href="{{ url('/request/create') }}" class="link">
+            <a href="{{ url('/admin/requests') }}" class="link">
                 <i class="fa fa-fw fa-file-export"></i>
                 <span>Manage Request</span>
             </a>
@@ -41,13 +41,13 @@
             </a>
         </li>
         <li class="list-group-item {{ request()->is('user') ? 'active' : '' }}">
-            <a href="{{ url('/user') }}" class="link">
+            <a href="{{ url('/admin/users') }}" class="link">
                 <i class="fa fa-fw fa-users"></i>
                 <span>Manage Users</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('kritik-dan-saran') ? 'active' : '' }}">
-            <a href="{{ url('/kritik-dan-saran') }}" class="link">
+            <a href="{{ url('/admin/feedbacks') }}" class="link">
                 <i class="fa-solid fa-fw fa-volume-high"></i>
                 <span>Manage Feedback</span>
             </a>
