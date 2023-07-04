@@ -34,6 +34,7 @@ class {{ title }}Controller extends Controller
         unset($post['save']);
 
         $post['created_at'] = date('Y-m-d H:i:s');
+        $post['user_id'] = Auth::user()->id;
 
         DB::table('{{ plural }}')->insert($post);
     

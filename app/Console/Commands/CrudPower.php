@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use File;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CrudPower extends Command
 {
@@ -41,9 +42,27 @@ class CrudPower extends Command
     public function handle()
     {
         $tableName = $this->argument('tablename');
+        $fields = [];
 
         // First, get table structure.
-        $fields = Schema::getColumnListing($tableName);
+        $results = DB::select("SELECT COLUMN_NAME, DATA_TYPE from INFORMATION_SCHEMA. COLUMNS where table_name = '$tableName'"); 
+        
+        foreach ($results as $result) {
+
+            $default = '';
+
+            if ($result->DATA_TYPE == 'enum') {
+                $default = DB::select("SHOW COLUMNS FROM $tableName WHERE Field = '$result->COLUMN_NAME'"); 
+                preg_match("/^enum\(\'(.*)\'\)$/", $default[0]->Type, $matches);
+                $default = explode("','", $matches[1]);                
+            }
+            
+            $fields[] = [
+                'name' => $result->COLUMN_NAME,
+                'type' => $result->DATA_TYPE,
+                'default' => $default
+            ];
+        }
 
         $this->generateController($tableName);
         $this->generateRoute($tableName);
@@ -109,17 +128,16 @@ class CrudPower extends Command
         $plural = Str::plural($tableName);
         $title = ucfirst($plural);
         $singular = Str::singular($tableName);
-        $total = count($fields);
-       
+        
         // Generate loop code.
         $table = '
         <table class="table table-bordered">
         <thead>
         <tr>';
 
-        for ($i = 0; $i < $total; $i++) {
-            if ($this->filter($fields[$i], 'list')) {
-                $table .= "\n<th>" . str_replace('_', ' ', ucfirst($fields[$i])) . "</th>";
+        foreach ($fields as $field) {
+            if ($this->filter($field['name'], 'list')) {
+                $table .= "\n<th>" . str_replace('_', ' ', ucfirst($field['name'])) . "</th>";
             }
         }
         
@@ -133,9 +151,10 @@ class CrudPower extends Command
         @foreach ($'. $plural .' as $'. $singular .')
         <tr>';
 
-        for ($i = 0; $i < $total; $i++) {
-            if ($this->filter($fields[$i], 'list')) {
-                $table .= "\n<td>{{ $$singular->$fields[$i] }}</td>";
+        foreach ($fields as $field) {
+            $fieldName = $field['name'];
+            if ($this->filter($field['name'], 'list')) {
+                $table .= "\n<td>{{ $$singular->$fieldName }}</td>";
             }
         }
         
@@ -187,16 +206,42 @@ class CrudPower extends Command
         $total = count($fields);
 
         // Generate input form.
-        for ($i = 0; $i < $total; $i++) {
-            if ($this->filter($fields[$i], 'create')) {
+        foreach ($fields as $field) {
+            if ($this->filter($field['name'], 'create')) {
                 
-                $name = str_replace('_', ' ', ucfirst($fields[$i]));
+                $name = str_replace('_', ' ', ucfirst($field['name']));
+                $fieldName = $field['name'];
 
-                $input .= "\n\t\t<div class=\"mb-3\">";
-                $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
-                $input .= "\n\t\t\t<input type=\"text\" class=\"form-control\" name=\"$fields[$i]\" required />";
-                $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
-                $input .= "\n\t\t</div>";
+                if ($field['type'] == 'varchar') {
+                    $input .= "\n\t\t<div class=\"mb-3\">";
+                    $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
+                    $input .= "\n\t\t\t<input type=\"text\" class=\"form-control\" name=\"$fieldName\" required />";
+                    $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
+                    $input .= "\n\t\t</div>";
+                }
+
+                if ($field['type'] == 'text') {
+                    $input .= "\n\t\t<div class=\"mb-3\">";
+                    $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
+                    $input .= "\n\t\t\t<textarea cols=\"5\" rows=\"5\" class=\"form-control\" name=\"$fieldName\" required /></textarea>";
+                    $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
+                    $input .= "\n\t\t</div>";
+                }
+
+                if ($field['type'] == 'enum') {
+                    $input .= "\n\t\t<div class=\"mb-3\">";
+                    $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
+                    $input .= "\n\t\t\t<select class=\"form-control\" name=\"$fieldName\" required />";
+                    
+                    foreach ($field['default'] as $index => $value) {
+                        $option = ucfirst($value);
+                        $input .= "\n\t\t\t<option value=\"$value\">$option</option>";
+                    }
+                    
+                    $input .= "\n\t\t\t</select>";
+                    $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
+                    $input .= "\n\t\t</div>";
+                }
             }
         }
         
@@ -238,16 +283,42 @@ class CrudPower extends Command
         $total = count($fields);
 
         // Generate edit form.
-        for ($i = 0; $i < $total; $i++) {
-            if ($this->filter($fields[$i], 'edit')) {
+        foreach ($fields as $field) {
+            if ($this->filter($field['name'], 'edit')) {
                 
-                $name = str_replace('_', ' ', ucfirst($fields[$i]));
+                $name = str_replace('_', ' ', ucfirst($field['name']));
+                $fieldName = $field['name'];
 
-                $input .= "\n\t\t<div class=\"mb-3\">";
-                $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
-                $input .= "\n\t\t\t<input type=\"text\" class=\"form-control\" value=\"{{ $$singular->$fields[$i] }}\" name=\"$fields[$i]\" required />";
-                $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
-                $input .= "\n\t\t</div>";
+                if ($field['type'] == 'varchar') {
+                    $input .= "\n\t\t<div class=\"mb-3\">";
+                    $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
+                    $input .= "\n\t\t\t<input type=\"text\" class=\"form-control\" value=\"{{ $$singular->$fieldName }}\" name=\"$fieldName\" required />";
+                    $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
+                    $input .= "\n\t\t</div>";
+                }
+
+                if ($field['type'] == 'text') {
+                    $input .= "\n\t\t<div class=\"mb-3\">";
+                    $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
+                    $input .= "\n\t\t\t<textarea cols=\"5\" rows=\"5\" class=\"form-control\" name=\"$fieldName\" required />{{ $$singular->$fieldName }}</textarea>";
+                    $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
+                    $input .= "\n\t\t</div>";
+                }
+
+                if ($field['type'] == 'enum') {
+                    $input .= "\n\t\t<div class=\"mb-3\">";
+                    $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
+                    $input .= "\n\t\t\t<select class=\"form-control\" name=\"$fieldName\" required />";
+                    
+                    foreach ($field['default'] as $index => $value) {
+                        $option = ucfirst($value);
+                        $input .= "\n\t\t\t<option value=\"$value\">$option</option>";
+                    }
+                    
+                    $input .= "\n\t\t\t</select>";
+                    $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
+                    $input .= "\n\t\t</div>";
+                }
             }
         }
         
