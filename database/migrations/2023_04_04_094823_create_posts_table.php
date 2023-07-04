@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->integer('total_read');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
