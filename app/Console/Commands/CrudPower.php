@@ -45,7 +45,7 @@ class CrudPower extends Command
         $fields = [];
 
         // First, get table structure.
-        $results = DB::select("SELECT COLUMN_NAME, DATA_TYPE from INFORMATION_SCHEMA. COLUMNS where table_name = '$tableName'"); 
+        $results = DB::select("SELECT COLUMN_NAME, DATA_TYPE from INFORMATION_SCHEMA.COLUMNS where table_schema = 'kms' and table_name = '$tableName'"); 
         
         foreach ($results as $result) {
 
@@ -63,7 +63,7 @@ class CrudPower extends Command
                 'default' => $default
             ];
         }
-
+        
         $this->generateController($tableName);
         $this->generateRoute($tableName);
         $this->generateList($tableName, $fields);
@@ -220,6 +220,14 @@ class CrudPower extends Command
                     $input .= "\n\t\t</div>";
                 }
 
+                if ($field['type'] == 'int') {
+                    $input .= "\n\t\t<div class=\"mb-3\">";
+                    $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
+                    $input .= "\n\t\t\t<input type=\"number\" class=\"form-control\" name=\"$fieldName\" required />";
+                    $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
+                    $input .= "\n\t\t</div>";
+                }
+
                 if ($field['type'] == 'text') {
                     $input .= "\n\t\t<div class=\"mb-3\">";
                     $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
@@ -293,6 +301,14 @@ class CrudPower extends Command
                     $input .= "\n\t\t<div class=\"mb-3\">";
                     $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
                     $input .= "\n\t\t\t<input type=\"text\" class=\"form-control\" value=\"{{ $$singular->$fieldName }}\" name=\"$fieldName\" required />";
+                    $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
+                    $input .= "\n\t\t</div>";
+                }
+
+                if ($field['type'] == 'int') {
+                    $input .= "\n\t\t<div class=\"mb-3\">";
+                    $input .= "\n\t\t\t<label for=\"$name\" class=\"form-label\">$name</label>";
+                    $input .= "\n\t\t\t<input type=\"number\" class=\"form-control\" value=\"{{ $$singular->$fieldName }}\" name=\"$fieldName\" required />";
                     $input .= "\n\t\t\t<div class=\"form-text\">Penjelasan tentang $name</div>";
                     $input .= "\n\t\t</div>";
                 }

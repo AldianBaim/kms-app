@@ -83,3 +83,33 @@ Route::get('/message', [App\Http\Controllers\MessageController::class, 'index'])
  * Prediction
  */
 Route::get('/prediction', [App\Http\Controllers\PredictionController::class, 'index']);
+
+/**
+ * Route for nations
+ */
+Route::get('/admin/nations', [App\Http\Controllers\Admin\NationsController::class, 'index']);
+Route::get('/admin/nations/create', [App\Http\Controllers\Admin\NationsController::class, 'create']);
+Route::get('/admin/nations/edit/{id}', [App\Http\Controllers\Admin\NationsController::class, 'edit']);
+Route::post('/admin/nations/update', [App\Http\Controllers\Admin\NationsController::class, 'update']);
+Route::post('/admin/nations/store', [App\Http\Controllers\Admin\NationsController::class, 'store']);
+Route::get('/admin/nations/delete/{id}', [App\Http\Controllers\Admin\NationsController::class, 'delete']);
+
+/**
+ * Route for files
+ */
+Route::get('/admin/files', [App\Http\Controllers\Admin\FilesController::class, 'index']);
+Route::get('/admin/files/create', [App\Http\Controllers\Admin\FilesController::class, 'create']);
+Route::get('/admin/files/edit/{id}', [App\Http\Controllers\Admin\FilesController::class, 'edit']);
+Route::post('/admin/files/update', [App\Http\Controllers\Admin\FilesController::class, 'update']);
+Route::post('/admin/files/store', [App\Http\Controllers\Admin\FilesController::class, 'store']);
+Route::get('/admin/files/delete/{id}', [App\Http\Controllers\Admin\FilesController::class, 'delete']);
+
+/**
+ * Route for files
+ */
+Route::get('/admin/files', [App\Http\Controllers\Admin\FilesController::class, 'index']);
+Route::get('/admin/files/create', [App\Http\Controllers\Admin\FilesController::class, 'create']);
+Route::get('/admin/files/edit/{id}', [App\Http\Controllers\Admin\FilesController::class, 'edit']);
+Route::post('/admin/files/update', [App\Http\Controllers\Admin\FilesController::class, 'update']);
+Route::post('/admin/files/store', [App\Http\Controllers\Admin\FilesController::class, 'store']);
+Route::get('/admin/files/delete/{id}', [App\Http\Controllers\Admin\FilesController::class, 'delete']);
