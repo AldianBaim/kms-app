@@ -19,18 +19,31 @@
         
 		<div class="mb-3">
 			<label for="Name" class="form-label">Name</label>
-			<input type="text" class="form-control" name="name" required />
+			<input type="text" class="form-control" name="name" value="{{ old('name') }}" required />
 			<div class="form-text">Penjelasan tentang Name</div>
 		</div>
 		<div class="mb-3">
 			<label for="Email" class="form-label">Email</label>
-			<input type="text" class="form-control" name="email" required />
+			<input type="text" class="form-control" name="email" value="{{ old('email') }}" required />
 			<div class="form-text">Penjelasan tentang Email</div>
 		</div>
 		<div class="mb-3">
 			<label for="Password" class="form-label">Password</label>
-			<input type="text" class="form-control" name="password" required />
-			<div class="form-text">Penjelasan tentang Password</div>
+			<input type="password" class="form-control" name="password" required />
+			@error('password')
+			<small class="text-danger" role="alert">
+				<strong>{{ $message }}</strong>
+			</small>
+			@enderror
+		</div>
+		<div class="mb-3">
+			<label for="Password" class="form-label">Password Confirmation</label>
+			<input type="password" class="form-control" name="password_confirm" required />
+			@error('password_confirm')
+			<small class="text-danger" role="alert">
+				<strong>{{ $message }}</strong>
+			</small>
+			@enderror
 		</div>
 		<div class="mb-3">
 			<label for="Role name" class="form-label">Role name</label>
@@ -46,17 +59,17 @@
 		</div>
 		<div class="mb-3">
 			<label for="Address" class="form-label">Address</label>
-			<input type="text" class="form-control" name="address" required />
+			<input type="text" class="form-control" name="address" value="{{ old('address') }}" required />
 			<div class="form-text">Penjelasan tentang Address</div>
 		</div>
 		<div class="mb-3">
 			<label for="Avatar" class="form-label">Avatar</label>
-			<input type="file" class="form-control" name="avatar" required />
+			<input type="file" class="form-control" name="avatar" value="{{ old('avatar') }}" required />
 			<div class="form-text">Penjelasan tentang Avatar</div>
 		</div>
 		<div class="mb-3">
 			<label for="Job" class="form-label">Job</label>
-			<input type="text" class="form-control" name="job" required />
+			<input type="text" class="form-control" name="job" value="{{ old('job') }}" required />
 			<div class="form-text">Penjelasan tentang Job</div>
 		</div>
         

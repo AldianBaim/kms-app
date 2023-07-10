@@ -51,7 +51,7 @@
 		</div>
 		<div class="mb-3">
 			<label for="Content" class="form-label">Content</label>
-			<textarea cols="5" rows="5" class="form-control" name="content" required /></textarea>
+			<textarea id="summernote" cols="5" rows="5" class="form-control" name="content" required /></textarea>
 			<div class="form-text">Penjelasan tentang Content</div>
 		</div>
 		<div class="mb-3">

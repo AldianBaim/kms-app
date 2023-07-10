@@ -31,8 +31,22 @@
 		</div>
 		<div class="mb-3">
 			<label for="Password" class="form-label">Password</label>
-			<input type="text" class="form-control" value="{{ $user->password }}" name="password" required />
-			<div class="form-text">Penjelasan tentang Password</div>
+			<input type="hidden" class="form-control" value="{{ $user->password }}" name="old_password" />
+			<input type="password" class="form-control" name="password" />
+			@error('password')
+			<small class="text-danger" role="alert">
+				<strong>{{ $message }}</strong>
+			</small>
+			@enderror
+		</div>
+		<div class="mb-3">
+			<label for="Password" class="form-label">Password Confirmation</label>
+			<input type="password" class="form-control" name="password_confirm" />
+			@error('password_confirm')
+			<small class="text-danger" role="alert">
+				<strong>{{ $message }}</strong>
+			</small>
+			@enderror
 		</div>
 		<div class="mb-3">
 			<label for="Role name" class="form-label">Role name</label>
@@ -46,7 +60,7 @@
 		</div>
 		<div class="mb-3">
 			<label for="Avatar" class="form-label">Avatar</label>
-			<input type="file" class="form-control" value="{{ $user->avatar }}" name="avatar" required />
+			<input type="file" class="form-control" value="{{ $user->avatar }}" name="avatar" />
 			<a href="{{ url('storage/image/avatar/' . $user->avatar) }}" target="_blank"><i class="fa fa-image"></i> See avatar</a>
 		</div>
 		<div class="mb-3">
