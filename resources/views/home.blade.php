@@ -36,56 +36,80 @@
 <div class="program my-4">
     <div class="row">
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/pembibitan.png')}}" class="w-75 rounded" />
-            <div class="label">PEMBIBITAN</div>
+            <a href="{{ url("knowledge/detail/1") }}">
+                <img src="{{asset('image/icon/content/pembibitan.png')}}" class="w-75 rounded" />
+                <div class="label">PEMBIBITAN</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/anggota-komunitas.png')}}" class="w-75 rounded" />
-            <div class="label">ANGGOTA KOMUNITAS</div>
+            <a href="{{ url("user") }}">
+                <img src="{{asset('image/icon/content/anggota-komunitas.png')}}" class="w-75 rounded" />
+                <div class="label">ANGGOTA KOMUNITAS</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/artikel-terbaru.png')}}" class="w-75 rounded" />
-            <div class="label">ARTIKEL TERBARU</div>
+            <a href="{{ url("knowledge") }}">
+                <img src="{{asset('image/icon/content/artikel-terbaru.png')}}" class="w-75 rounded" />
+                <div class="label">ARTIKEL TERBARU</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/teknik-budidaya.png')}}" class="w-75 rounded" />
-            <div class="label">TEKNIK BUDIDAYA</div>
+            <a href="{{ url("knowledge/detail/2") }}">
+                <img src="{{asset('image/icon/content/teknik-budidaya.png')}}" class="w-75 rounded" />
+                <div class="label">TEKNIK BUDIDAYA</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/penyakit-aglaonema.png')}}" class="w-75 rounded" />
-            <div class="label">PENYAKIT AGLAONEMA</div>
+            <a href="{{ url("page/diseases") }}">
+                <img src="{{asset('image/icon/content/penyakit-aglaonema.png')}}" class="w-75 rounded" />
+                <div class="label">PENYAKIT AGLAONEMA</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/anggota-teraktif.png')}}" class="w-75 rounded" />
-            <div class="label">ANGGOTA TERAKTIF</div>
+            <a href="{{ url("page/most-active") }}">
+                <img src="{{asset('image/icon/content/anggota-teraktif.png')}}" class="w-75 rounded" />
+                <div class="label">ANGGOTA TERAKTIF</div>
+            </a>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/permodalan.png')}}" class="w-75 rounded rounded" />
-            <div class="label">PERMODALAN</div>
+            <a href="{{ url("knowledge/detail/3") }}">
+                <img src="{{asset('image/icon/content/permodalan.png')}}" class="w-75 rounded rounded" />
+                <div class="label">PERMODALAN</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/bibit.png')}}" class="w-75 rounded" />
-            <div class="label">BIBIT UNGGUL</div>
+            <a href="https://www.youtube.com/watch?v=EqnMqabanvA" target="_blank">
+                <img src="{{asset('image/icon/content/bibit.png')}}" class="w-75 rounded" />
+                <div class="label">BIBIT UNGGUL</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/pengembangan.png')}}" class="w-75 rounded" />
-            <div class="label">
-                PENGEMBANGAN BISNIS
-            </div>
+            <a href="https://www.youtube.com/watch?v=DWNnE6f3N0E" target="_blank">
+                <img src="{{asset('image/icon/content/pengembangan.png')}}" class="w-75 rounded" />
+                <div class="label">
+                    PENGEMBANGAN BISNIS
+                </div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/prediksi.png')}}" class="w-75 rounded" />
-            <div class="label">PREDIKSI HARGA</div>
+            <a href="{{ url('prediction') }}">
+                <img src="{{asset('image/icon/content/prediksi.png')}}" class="w-75 rounded" />
+                <div class="label">PREDIKSI HARGA</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/kritik.png')}}" class="w-75 rounded" />
-            <div class="label">KRITIK DAN SARAN</div>
+            <a href="{{ url('kritik-dan-saran') }}">
+                <img src="{{asset('image/icon/content/kritik.png')}}" class="w-75 rounded" />
+                <div class="label">KRITIK DAN SARAN</div>
+            </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
-            <img src="{{asset('image/icon/content/pesan-masuk.png')}}" class="w-75 rounded" />
-            <div class="label">PESAN MASUK</div>
+            <a href="{{ url('message') }}">
+                <img src="{{asset('image/icon/content/pesan-masuk.png')}}" class="w-75 rounded" />
+                <div class="label">PESAN MASUK</div>
+            </a>
         </div>
     </div>
 </div>
