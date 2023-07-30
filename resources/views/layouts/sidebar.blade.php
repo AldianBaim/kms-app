@@ -80,6 +80,12 @@
                 <span>Knowledge</span>
             </a>
         </li>
+        <li class="list-group-item {{ request()->is('forum') ? 'active' : '' }}">
+            <a href="{{ url('/forum') }}" class="link">
+                <i class="fa fa-fw fa-comment"></i>
+                <span>Discussion</span>
+            </a>
+        </li>
         <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
             <a href="{{ url('/request/create') }}" class="link">
                 <i class="fa fa-fw fa-file-export"></i>

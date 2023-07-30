@@ -42,6 +42,15 @@ Route::get('/knowledge/detail/{id}', [App\Http\Controllers\KnowledgeController::
 Route::get('/knowledge-capturing', [App\Http\Controllers\CapturingController::class, 'index']);
 
 /**
+ * Forum.
+ */
+Route::get('/forum', [App\Http\Controllers\ForumController::class, 'index']);
+Route::get('/forum/detail/{id}', [App\Http\Controllers\ForumController::class, 'detail']);
+Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
+Route::post('/forum/store', [App\Http\Controllers\ForumController::class, 'store']);
+
+
+/**
  * User.
  */
 Route::get('/user', [App\Http\Controllers\UserController::class, 'index']);
