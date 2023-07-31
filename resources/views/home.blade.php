@@ -11,7 +11,7 @@
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://ik.imagekit.io/z5w8c5jluyvp/judul%20banner%20(1)_cAK3x_T1H.jpg?updatedAt=1690795343608" class="d-block w-100" alt="...">
+        <img src=https://ik.imagekit.io/z5w8c5jluyvp/Aglaonema%20banner_vEJdBciYN.jpg?updatedAt=1690796785393" class="d-block w-100" alt="...">
       </div>
       <!-- <div class="carousel-item">
         <img src="https://i.postimg.cc/c4f8tnFK/Add-a-heading.png" class="d-block w-100" alt="...">
