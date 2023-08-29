@@ -22,9 +22,12 @@
 
     <div class="mb-3 mt-3" style="background:#f0f0f0;padding:10px;border-radius:5px;">
         <span class="">Kategori :<br/></span>
+
         <ul>
         @foreach ($categories as $category)
-            <li><a href="#"><strong>{{ $category->category_name }}</strong></a></li>
+            <li>
+                <a href="{{ url('forum/?category=' . $category->category_name) }}" class="{{ $category->category_name == Request::get('category') ? 'fw-bold' : '' }}">{{ $category->category_name }}</a>
+            </li>
         @endforeach
         </ul>
 
@@ -35,6 +38,8 @@
             <a href="{{ url('forum/detail/' . $thread->id) }}">{{ $thread->thread_name }}</a>
 
             <p class="mt-2">{!! Str::words($thread->thread_content, 20, '..') !!}</p>
+
+            <small>Kategori : <b>{{ $thread->category }}</b></small><br/>
 
             <div class="mt-4">
                 <small>Dibuat pada {{ $thread->created_at }}</small> . <small><a href="{{ url('forum/detail/' . $thread->id) }}"><b>Tanggapi  <span class="fa fa-external-link"></span></b></a></small>

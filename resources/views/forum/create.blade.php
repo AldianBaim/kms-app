@@ -25,15 +25,11 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Kategori Diskusi</label>
             <select name="category" class="form-control" required>
-                <option value="" selected>Pilih ..</option>
-                <option value="Pembibitan">Pembibitan</option>
-                <option value="Waktu Tanam">Waktu Tanam</option>
-                <option value="Kondisi Cuaca">Kondisi Cuaca</option>
-                <option value="Teknik Budidaya">Teknik Budidaya</option>
-                <option value="Penyakit">Penyakit</option>
-                <option value="Lainnya">Lainnya</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->category_name }}">{{ $category->category_name }}</option>
+                @endforeach
             </select>
-            <div class="form-text">Pilih kategori terkait materi.</div>
+            <div class="form-text">Pilih kategori terkait pertanyaan.</div>
         </div>
         
         <div class="mb-3">

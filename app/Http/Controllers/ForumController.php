@@ -23,10 +23,17 @@ class ForumController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $threads = DB::table('forum')->orderBy('id', 'desc')->get();
+        $category = $request->input('category', null);
+        
         $categories = DB::table('category')->where(['deleted_at' => null])->get();
+
+        if ($category) {
+            $threads = DB::table('forum')->where(['category' => $category])->orderBy('id', 'desc')->get();
+        } else {
+            $threads = DB::table('forum')->orderBy('id', 'desc')->get();
+        }
 
         return view('forum/index', ['threads' => $threads, 'categories' => $categories]);
     }
@@ -38,7 +45,9 @@ class ForumController extends Controller
      */
     public function create()
     {
-        return view('forum.create');
+        $categories = DB::table('category')->where(['deleted_at' => null])->get();
+
+        return view('forum.create', ['categories' => $categories]);
     }
 
     /**
