@@ -51,8 +51,8 @@
 		<div class="mb-3">
 			<label for="Status" class="form-label">Status</label>
 			<select class="form-control" name="status" required />
-			<option value="Ditunda">Ditunda</option>
-			<option value="Diterima">Diterima</option>
+			<option value="Ditunda" {{ ($post->status == 'Ditunda') ? 'selected' : '' }}>Ditunda</option>
+			<option value="Diterima" {{ ($post->status == 'Diterima') ? 'selected' : '' }}>Diterima</option>
 			</select>
 			<div class="form-text">Status artikel</div>
 		</div>
