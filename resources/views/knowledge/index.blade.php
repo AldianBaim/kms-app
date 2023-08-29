@@ -29,7 +29,7 @@
         <div class="mb-2 content" style="padding:10px 10px 10px 0px;border-bottom:1px solid #dedede;">
             <a href="{{ url('knowledge/detail/' . $post->id) }}">{{ $post->title }}</a>
 
-            <p class="mt-2">{!! Str::words($post->content, 20, '..') !!}</p>
+            <p class="mt-2">{{ Str::words($post->content, 20, '..') }}</p>
 
             <div class="mt-4">
                 <small>Dibuat pada {{ $post->created_at }}</small> . <small><b>{{ $post->total_read }}</b> kali dibaca</small> . <small><a href="{{ url('knowledge/detail/' . $post->id) }}">Baca</a></small>
