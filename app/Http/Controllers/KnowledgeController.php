@@ -23,9 +23,16 @@ class KnowledgeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = DB::table('posts')->where(['type' => 'article', 'status' => 'Diterima'])->orderBy('id', 'desc')->get();
+        $category = $request->input('category', null);
+
+        if ($category) {
+            $posts = DB::table('posts')->where(['type' => 'article', 'status' => 'Diterima', 'category' => $category])->orderBy('id', 'desc')->get();
+        } else {
+            $posts = DB::table('posts')->where(['type' => 'article', 'status' => 'Diterima'])->orderBy('id', 'desc')->get();
+        }
+
         $categories = DB::table('category')->where(['deleted_at' => null])->get();
 
         return view('knowledge/index', ['posts' => $posts, 'categories' => $categories]);

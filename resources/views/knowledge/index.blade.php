@@ -21,7 +21,7 @@
 
         <ul>
         @foreach ($categories as $category)
-            <li><a href="#"><strong>{{ $category->category_name }}</strong></a></li>
+            <li><a href="{{ url('knowledge/?category=' . $category->category_name) }}" class="category" category="{{ $category->category_name }}"><strong>{{ $category->category_name }}</strong></a></li>
         @endforeach
         </ul>
 
