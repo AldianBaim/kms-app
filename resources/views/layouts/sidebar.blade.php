@@ -28,6 +28,12 @@
                 <span>Manage Knowledge</span>
             </a>
         </li>
+        <li class="list-group-item {{ request()->is('category') ? 'active' : '' }}">
+            <a href="{{ url('/admin/category') }}" class="link">
+                <i class="fa fa-fw fa-tag"></i>
+                <span>Manage Category</span>
+            </a>
+        </li>
         <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
             <a href="{{ url('/admin/requests') }}" class="link">
                 <i class="fa fa-fw fa-file-export"></i>
@@ -36,7 +42,7 @@
         </li>
         <li class="list-group-item">
             <a href="{{ url('/admin/files') }}" class="link">
-                <i class="fa fa-fw fa-file"></i>
+                <i class="fa fa-fw fa-folder-open"></i>
                 <span>Manage File</span>
             </a>
         </li>

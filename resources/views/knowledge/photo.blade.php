@@ -11,13 +11,14 @@
     <h4>Galeri Foto.</h4>
     <p><small>Pengetahuan mengenai Aglaonema melalui galeri foto.</small></p>
 
-    <div class="mb-3 mt-3">
-        <span class="">Kategori :</span>
-        <a href="#" class="badge bg-warning">Pembibitan</a>
-        <a href="#" class="badge bg-danger">Teknik Budidaya</a>
-        <a href="#" class="badge bg-info">Waktu Tanam</a>
-        <a href="#" class="badge bg-success">Panyakit</a>
-        <a href="#" class="badge bg-dark">Lainnya</a>
+    <div class="mb-3 mt-3" style="background:#f0f0f0;padding:10px;border-radius:5px;">
+        <span class="">Kategori :<br/></span>
+        <ul>
+        @foreach ($categories as $category)
+            <li><a href="#"><strong>{{ $category->category_name }}</strong></a></li>
+        @endforeach
+        </ul>
+
     </div>
 
     <div class="mt-4">

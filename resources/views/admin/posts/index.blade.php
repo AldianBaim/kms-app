@@ -36,10 +36,10 @@
                     <th>User</th>
                     <th>Title</th>
                     <th>Type</th>
+                    <th>Category</th>
                     <th>Cover</th>
                     <th>Status</th>
                     <th>Attachment</th>
-                    <th>Content</th>
                     <th>Total read</th>
                     <th>Created at</th>
                     <th>Opsi</th>
@@ -53,6 +53,7 @@
                 <td>{{ $post->name }}</td>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->type }}</td>
+                <td>{{ $post->category }}</td>
                 <td><a href="{{ url('storage/files/knowledge/' . $post->cover) }}" target="_blank"><i class="fa fa-image"></i> See image</a></td>
                 <td>
                     @if($post->status == 'Ditunda')
@@ -62,7 +63,6 @@
                     @endif
                 </td>
                 <td><a href="{{ url('storage/files/knowledge/' . $post->attachment) }}" target="_blank"><i class="fa fa-image"></i> See attachment</a></td>
-                <td>{{ $post->content }}</td>
                 <td>{{ $post->total_read }}</td>
                 <td>{{ $post->created_at }}</td>
                 <td><a href="{{ url('admin/posts/edit/'. $post->id) }}">Edit<a> . <a onclick="return confirm('This record will be deleted, sure?')" href="{{ url('admin/posts/delete/'. $post->id) }}">Delete<a></td>

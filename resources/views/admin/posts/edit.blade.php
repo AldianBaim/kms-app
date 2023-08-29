@@ -18,11 +18,10 @@
 
         <input type="hidden" class="form-control" name="id" value="{{ $post->id }}" required />
 
-        
 		<div class="mb-3">
 			<label for="Title" class="form-label">Title</label>
 			<input type="text" class="form-control" value="{{ $post->title }}" name="title" required />
-			<div class="form-text">Penjelasan tentang Title</div>
+			<div class="form-text">Tuliskan judul sejelas-jelasnya</div>
 		</div>
 		<div class="mb-3">
 			<label for="Type" class="form-label">Type</label>
@@ -31,8 +30,19 @@
 			<option value="photo">Photo</option>
 			<option value="video">Video</option>
 			</select>
-			<div class="form-text">Penjelasan tentang Type</div>
+			<div class="form-text">Tipe artikel</div>
 		</div>
+
+		<div class="mb-3">
+			<label for="Type" class="form-label">Category</label>
+			<select class="form-control" name="category" required />
+				@foreach($categories as $category) 
+					<option value="{{ $category->category_name }}" {{ ($category->category_name == $post->category) ? 'selected' : '' }}>{{ $category->category_name }}</option>
+				@endforeach
+			</select>
+			<div class="form-text">Masukan kategori</div>
+		</div>
+
 		<div class="mb-3">
 			<label for="Cover" class="form-label">Cover</label>
 			<input type="file" class="form-control" value="{{ $post->cover }}" name="cover" />
@@ -44,7 +54,7 @@
 			<option value="Ditunda">Ditunda</option>
 			<option value="Diterima">Diterima</option>
 			</select>
-			<div class="form-text">Penjelasan tentang Status</div>
+			<div class="form-text">Status artikel</div>
 		</div>
 		<div class="mb-3">
 			<label for="Attachment" class="form-label">Attachment</label>
@@ -54,14 +64,9 @@
 		<div class="mb-3">
 			<label for="Content" class="form-label">Content</label>
 			<textarea id="summernote" cols="5" rows="5" class="form-control" name="content" required />{{ $post->content }}</textarea>
-			<div class="form-text">Penjelasan tentang Content</div>
+			<div class="form-text">Isikan selengkap-lengkapnya</div>
 		</div>
-		<div class="mb-3">
-			<label for="Total read" class="form-label">Total read</label>
-			<input type="number" class="form-control" value="{{ $post->total_read }}" name="total_read" required />
-			<div class="form-text">Penjelasan tentang Total read</div>
-		</div>
-        
+		
         <button type="submit" class="btn btn-primary" name="save" value="save_edit">Save, and edit</button>
         <button type="submit" class="btn btn-success" name="save" value="save">Save</button>
     </form>

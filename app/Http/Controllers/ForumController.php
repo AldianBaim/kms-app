@@ -26,8 +26,9 @@ class ForumController extends Controller
     public function index()
     {
         $threads = DB::table('forum')->orderBy('id', 'desc')->get();
+        $categories = DB::table('category')->where(['deleted_at' => null])->get();
 
-        return view('forum/index', ['threads' => $threads]);
+        return view('forum/index', ['threads' => $threads, 'categories' => $categories]);
     }
 
     /**

@@ -111,23 +111,12 @@ Route::get('/admin/nations/delete/{id}', [App\Http\Controllers\Admin\NationsCont
 /**
  * Route for files
  */
-Route::get('/admin/files', [App\Http\Controllers\Admin\FilesController::class, 'index']);
-Route::get('/admin/files/create', [App\Http\Controllers\Admin\FilesController::class, 'create']);
-Route::get('/admin/files/edit/{id}', [App\Http\Controllers\Admin\FilesController::class, 'edit']);
-Route::post('/admin/files/update', [App\Http\Controllers\Admin\FilesController::class, 'update']);
-Route::post('/admin/files/store', [App\Http\Controllers\Admin\FilesController::class, 'store']);
-Route::get('/admin/files/delete/{id}', [App\Http\Controllers\Admin\FilesController::class, 'delete']);
-
-/**
- * Route for files
- */
-Route::get('/admin/files', [App\Http\Controllers\Admin\FilesController::class, 'index']);
-Route::get('/admin/files/create', [App\Http\Controllers\Admin\FilesController::class, 'create']);
-Route::get('/admin/files/edit/{id}', [App\Http\Controllers\Admin\FilesController::class, 'edit']);
-Route::post('/admin/files/update', [App\Http\Controllers\Admin\FilesController::class, 'update']);
-Route::post('/admin/files/store', [App\Http\Controllers\Admin\FilesController::class, 'store']);
-Route::get('/admin/files/delete/{id}', [App\Http\Controllers\Admin\FilesController::class, 'delete']);
-
+Route::get('/admin/category', [App\Http\Controllers\Admin\CategoryController::class, 'index']);
+Route::get('/admin/category/create', [App\Http\Controllers\Admin\CategoryController::class, 'create']);
+Route::get('/admin/category/edit/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'edit']);
+Route::post('/admin/category/update', [App\Http\Controllers\Admin\CategoryController::class, 'update']);
+Route::post('/admin/category/store', [App\Http\Controllers\Admin\CategoryController::class, 'store']);
+Route::get('/admin/category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'delete']);
 
 /**
  * Route for posts

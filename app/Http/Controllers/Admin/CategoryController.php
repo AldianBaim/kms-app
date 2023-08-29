@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class NationsController extends Controller
+class CategoryController extends Controller
 {
     public function __construct()
     {
@@ -16,14 +16,14 @@ class NationsController extends Controller
 
     public function index()
     {
-        $nations = DB::table('nations')->where('deleted_at', null)->orderBy('id', 'desc')->paginate(10);
+        $categories = DB::table('category')->where('deleted_at', null)->orderBy('id', 'desc')->paginate(10);
 
-        return view('admin/nations/index', compact('nations'));
+        return view('admin/category/index', compact('categories'));
     }
 
     public function create()
     {
-        return view('admin/nations/create');
+        return view('admin/category/create');
     }
 
     public function store(Request $request)
@@ -34,20 +34,19 @@ class NationsController extends Controller
         unset($post['save']);
 
         $post['created_at'] = date('Y-m-d H:i:s');
-        $post['user_id'] = Auth::user()->id;
-
-        DB::table('nations')->insert($post);
+        
+        DB::table('category')->insert($post);
     
         $request->session()->flash('status', 'Successfully added.');
 
-        return redirect('/admin/nations');
+        return redirect('/admin/category');
     }
 
     public function edit($id)
     {
-        $nation = DB::table('nations')->where('id', $id)->first();
+        $category = DB::table('category')->where('id', $id)->first();
         
-        return view('admin/nations/edit', compact('nation'));
+        return view('admin/category/edit', compact('category'));
     }
 
     public function update(Request $request)
@@ -59,12 +58,12 @@ class NationsController extends Controller
 
         $post['updated_at'] = date('Y-m-d H:i:s');
 
-        DB::table('nations')->where('id', $post['id'])->update($post);
+        DB::table('category')->where('id', $post['id'])->update($post);
     
         $request->session()->flash('status', 'Successfully updated.');
 
         if ($request->post('save') == 'save') {
-            return redirect('/admin/nations');
+            return redirect('/admin/category');
         }
 
         return back();
@@ -72,11 +71,11 @@ class NationsController extends Controller
 
     public function delete($id, Request $request)
     {
-        DB::table('nations')->where('id', $id)
-                                 ->update(['deleted_at' => date('Y-m-d H:i:s')]);
+        DB::table('category')->where('id', $id)
+                             ->update(['deleted_at' => date('Y-m-d H:i:s')]);
 
         $request->session()->flash('status', 'Deleted.');
 
-        return redirect('/admin/nations');        
+        return redirect('/admin/category');        
     }
 }

@@ -26,8 +26,9 @@ class KnowledgeController extends Controller
     public function index()
     {
         $posts = DB::table('posts')->where(['type' => 'article', 'status' => 'Diterima'])->orderBy('id', 'desc')->get();
+        $categories = DB::table('category')->where(['deleted_at' => null])->get();
 
-        return view('knowledge/index', ['posts' => $posts]);
+        return view('knowledge/index', ['posts' => $posts, 'categories' => $categories]);
     }
 
     /**
@@ -105,8 +106,9 @@ class KnowledgeController extends Controller
     public function video()
     {
         $posts = DB::table('posts')->where('type', 'video')->get();
+        $categories = DB::table('category')->where(['deleted_at' => null])->get();
 
-        return view('knowledge/video', ['posts' => $posts]);
+        return view('knowledge/video', ['posts' => $posts, 'categories' => $categories]);
     }
 
     /**
@@ -117,7 +119,8 @@ class KnowledgeController extends Controller
     public function photo()
     {
         $posts = DB::table('posts')->where('type', 'photo')->get();
+        $categories = DB::table('category')->where(['deleted_at' => null])->get();
 
-        return view('knowledge/photo', ['posts' => $posts]);
+        return view('knowledge/photo', ['posts' => $posts, 'categories' => $categories]);
     }
 }

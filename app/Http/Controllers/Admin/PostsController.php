@@ -23,7 +23,9 @@ class PostsController extends Controller
     public function create()
     {
         $users = DB::table('users')->get();
-        return view('admin/posts/create', compact('users'));
+        $categories = DB::table('category')->where(['deleted_at' => null])->get();
+
+        return view('admin/posts/create', compact('users', 'categories'));
     }
 
     public function store(Request $request)
@@ -57,8 +59,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = DB::table('posts')->where('id', $id)->first();
+        $categories = DB::table('category')->where(['deleted_at' => null])->get();
         
-        return view('admin/posts/edit', compact('post'));
+        return view('admin/posts/edit', compact('post', 'categories'));
     }
 
     public function update(Request $request)

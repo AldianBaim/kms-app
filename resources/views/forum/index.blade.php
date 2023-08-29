@@ -20,13 +20,14 @@
         <button class="btn btn-success" type="button">Cari</button>
     </div>
 
-    <div class="mb-3 mt-3">
-        <span class="">Kategori :</span>
-        <a href="#"><strong>Pembibitan</strong></a>, 
-        <a href="#"><strong>Teknik Budidaya</strong></a>, 
-        <a href="#"><strong>Waktu Tanam</strong></a>, 
-        <a href="#"><strong>Penyakit</strong></a>, 
-        <a href="#"><strong>Lainnya</strong></a>
+    <div class="mb-3 mt-3" style="background:#f0f0f0;padding:10px;border-radius:5px;">
+        <span class="">Kategori :<br/></span>
+        <ul>
+        @foreach ($categories as $category)
+            <li><a href="#"><strong>{{ $category->category_name }}</strong></a></li>
+        @endforeach
+        </ul>
+
     </div>
  
     @foreach ($threads as $thread)
