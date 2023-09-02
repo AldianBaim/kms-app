@@ -13,6 +13,7 @@
     <p><small>Small description about berbagi berkas</small></p>
 
     <div class="table-responsive my-5">
+        <!--
         <div class="d-flex justify-content-between mb-3">
             <div class="d-flex flex-column">
                 <div class="mb-2">
@@ -37,6 +38,15 @@
                 </button>
             </div>
         </div>
+        -->
+
+        <div class="pull-right mb-5">
+            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                <i class="fa fa-fw fa-upload"></i>
+                Unggah Berkas
+            </button>
+        </div>
+        
         <table class="table table-hover">
             <thead>
                 <tr>
