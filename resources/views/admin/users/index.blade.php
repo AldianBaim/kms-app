@@ -4,7 +4,7 @@
 
 <section class="p-3">
     <h4>Manage Users</h4>
-    <p><small>Disini deskripsi list apa nya.</small></p>
+    <p><small>Manajemen data pengguna.</small></p>
 
     @if (session('status'))
     <div class="alert alert-success" role="alert">
