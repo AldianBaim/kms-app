@@ -110,9 +110,16 @@ class KnowledgeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function video()
+    public function video(Request $request)
     {
-        $posts = DB::table('posts')->where('type', 'video')->get();
+        $category = $request->input('category', null);
+
+        if ($category) {
+            $posts = DB::table('posts')->where(['type' => 'video', 'status' => 'Diterima', 'category' => $category])->orderBy('id', 'desc')->get();
+        } else {
+            $posts = DB::table('posts')->where(['type' => 'video', 'status' => 'Diterima'])->orderBy('id', 'desc')->get();
+        }
+
         $categories = DB::table('category')->where(['deleted_at' => null])->get();
 
         return view('knowledge/video', ['posts' => $posts, 'categories' => $categories]);
@@ -123,9 +130,16 @@ class KnowledgeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function photo()
+    public function photo(Request $request)
     {
-        $posts = DB::table('posts')->where('type', 'photo')->get();
+        $category = $request->input('category', null);
+
+        if ($category) {
+            $posts = DB::table('posts')->where(['type' => 'photo', 'status' => 'Diterima', 'category' => $category])->orderBy('id', 'desc')->get();
+        } else {
+            $posts = DB::table('posts')->where(['type' => 'photo', 'status' => 'Diterima'])->orderBy('id', 'desc')->get();
+        }
+
         $categories = DB::table('category')->where(['deleted_at' => null])->get();
 
         return view('knowledge/photo', ['posts' => $posts, 'categories' => $categories]);

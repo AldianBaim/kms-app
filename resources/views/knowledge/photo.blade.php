@@ -13,9 +13,12 @@
 
     <div class="mb-3 mt-3" style="background:#f0f0f0;padding:10px;border-radius:5px;">
         <span class="">Kategori :<br/></span>
+
         <ul>
         @foreach ($categories as $category)
-            <li><a href="#"><strong>{{ $category->category_name }}</strong></a></li>
+            <li>
+                <a href="{{ url('photo?category=' . $category->category_name) }}" class="{{ $category->category_name == Request::get('category') ? 'fw-bold' : '' }}">{{ $category->category_name }}</a>
+            </li>
         @endforeach
         </ul>
 

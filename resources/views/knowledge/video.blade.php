@@ -13,9 +13,12 @@
 
     <div class="mb-3 mt-3" style="background:#f0f0f0;padding:10px;border-radius:5px;">
         <span class="">Kategori :<br/></span>
+
         <ul>
         @foreach ($categories as $category)
-            <li><a href="#"><strong>{{ $category->category_name }}</strong></a></li>
+            <li>
+                <a href="{{ url('video?category=' . $category->category_name) }}" class="{{ $category->category_name == Request::get('category') ? 'fw-bold' : '' }}">{{ $category->category_name }}</a>
+            </li>
         @endforeach
         </ul>
 
@@ -34,8 +37,12 @@
                     </div>
 
                     <h5 class="card-title">{{ $post->title }}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <small>100 kali ditonton</small> . <small>Diunggah pada {{ $post->created_at }}</small>
+                    
+                    <small>Kategori : <b>{{ $post->category }}</b></small><br/>
+
+                    <div class="mt-4">
+                        <small>Diunggah pada {{ $post->created_at }}</small>
+                    </div>
 
                 </div>
 
