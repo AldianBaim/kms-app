@@ -33,7 +33,7 @@
         <div class="mb-2 content" style="padding:10px 10px 10px 0px;border-bottom:1px solid #dedede;">
             <a href="{{ url('knowledge/detail/' . $post->id) }}">{{ $post->title }}</a>
 
-            <p class="mt-2">{{ Str::words($post->content, 20, '..') }}</p>
+            <p class="mt-2">{{ Str::words(strip_tags($post->content), 20, '..') }}</p>
 
             <small>Kategori : <b>{{ $post->category }}</b></small><br/>
             <div class="mt-4">
