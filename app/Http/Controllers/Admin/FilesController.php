@@ -34,7 +34,7 @@ class FilesController extends Controller
         if ($request->hasFile('attachment')) {
             $attachment = $request->file('attachment')->getClientOriginalName();
             $request->attachment->storeAs('public/files/file', $attachment);
-        }
+        }px
 
         unset($post['_token']);
         unset($post['save']);

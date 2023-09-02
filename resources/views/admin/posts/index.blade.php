@@ -4,7 +4,7 @@
 
 <section class="p-3">
     <h4>Manage Posts</h4>
-    <p><small>Disini deskripsi list apa nya.</small></p>
+    <p><small>Mengatur data knowledge, video, photo dan sebagainya</small></p>
 
     @if (session('status'))
     <div class="alert alert-success" role="alert">
