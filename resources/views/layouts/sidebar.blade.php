@@ -77,91 +77,91 @@
         <li class="list-group-item {{ request()->is('home') ? 'active' : '' }}">
             <a href="{{ url('/home') }}" class="link">
                 <i class="fa fa-fw fa-home"></i>
-                <span>Dashboard</span>
+                <span>Home</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('knowledge') ? 'active' : '' }}">
             <a href="{{ url('/knowledge') }}" class="link">
                 <i class="fa fa-fw fa-circle-info"></i>
-                <span>Knowledge</span>
+                <span>Informasi</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('forum') ? 'active' : '' }}">
             <a href="{{ url('/forum') }}" class="link">
                 <i class="fa fa-fw fa-comment"></i>
-                <span>Discussion</span>
+                <span>Diskusi Tani</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('request') ? 'active' : '' }}">
             <a href="{{ url('/request/create') }}" class="link">
                 <i class="fa fa-fw fa-file-export"></i>
-                <span>Content Request</span>
+                <span>Minta Materi</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/prediction') }}" class="link">
                 <i class="fa fa-fw fa-magnifying-glass"></i>
-                <span>Prediction</span>
+                <span>Prediksi Trend</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('knowledge-capturing') ? 'active' : '' }}">
             <a href="{{ url('/knowledge/create') }}" class="link">
                 <i class="fa fa-fw fa-pencil"></i>
-                <span>Knowledge Capturing</span>
+                <span>Buat Posting</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/video') }}" class="link">
                 <i class="fa fa-fw fa-video"></i>
-                <span>Watch Video</span>
+                <span>Belajar Tani</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/photo') }}" class="link">
                 <i class="fa fa-fw fa-photo"></i>
-                <span>Photo Gallery</span>
+                <span>Foto</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/berbagi-berkas') }}" class="link">
                 <i class="fa fa-fw fa-file"></i>
-                <span>File Sharing</span>
+                <span>Berbagi Data</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('user') ? 'active' : '' }}">
             <a href="{{ url('/user') }}" class="link">
                 <i class="fa fa-fw fa-users"></i>
-                <span>Users</span>
+                <span>Pengguna</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/my-profile') }}" class="link">
                 <i class="fa fa-fw fa-user"></i>
-                <span>My Profile</span>
+                <span>Profil Saya</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/message') }}" class="link">
                 <i class="fa fa-fw fa-message"></i>
-                <span>Inbox</span>
+                <span>Pesan Masuk</span>
             </a>
         </li>
         <li class="list-group-item {{ request()->is('kritik-dan-saran') ? 'active' : '' }}">
             <a href="{{ url('/kritik-dan-saran') }}" class="link">
                 <i class="fa-solid fa-fw fa-volume-high"></i>
-                <span>Feedback</span>
+                <span>Umpan Balik</span>
             </a>
         </li>
         <li class="list-group-item">
             <a href="{{ url('/pengaturan') }}" class="link">
                 <i class="fa fa-fw fa-gear"></i>
-                <span>Setting</span>
+                <span>Pengaturan</span>
             </a>
         </li>
         <li class="list-group-item">
             <a class="link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <i class="fa fa-fw fa-right-from-bracket"></i>
-                <span>Logout</span>
+                <span>Keluar</span>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf

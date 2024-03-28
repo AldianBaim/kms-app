@@ -25,6 +25,8 @@ class PredictionController extends Controller
      */
     public function index()
     {
-        return view('prediction.index');
+        $predictions = array_map('str_getcsv', file(storage_path('Prediction.csv')));
+        
+        return view('prediction.index', ['predictions' => $predictions]);
     }
 }

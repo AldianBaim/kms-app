@@ -31,6 +31,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'index']);
 
 /**
+ * Catalogoue.
+ */
+Route::get('/catalogue', [App\Http\Controllers\CatalogueController::class, 'index']);
+
+/**
  * Knowledge.
  */
 Route::get('/knowledge', [App\Http\Controllers\KnowledgeController::class, 'index']);

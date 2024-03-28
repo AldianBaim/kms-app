@@ -12,7 +12,7 @@
                             <img src="{{ asset('image/icon/sidebar/profile.png') }}" width="80" class="rounded-circle p-3 mb-4 bg-secondary shadow" />
                             <h4>KMS Aglaonema</h4>
                             <h6 class="text-muted">Selamat datang! Masuk dan temukan berbagai informasi dan wawasan penting seputar Aglaonema.</h6>
-                            <img src="https://i.postimg.cc/Kjc1hkDj/aglaonema.jpg" class="w-50"/>
+                            <img src="https://ik.imagekit.io/6ix6n7mhslj/KMS/Screenshot%202024-03-28%20at%2012.45.01_4csx9h_5e.png?updatedAt=1711604753808" class="w-50"/>
                         </div>
                         <div class="form-group mb-4">
                             <div class="input-group">
