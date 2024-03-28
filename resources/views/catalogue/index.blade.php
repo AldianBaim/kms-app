@@ -17,7 +17,7 @@
 
     <div class="row">
         <div class="col-md-4">
-            <div class="card">
+            <div class="card h-100">
                 <img src="https://ik.imagekit.io/6ix6n7mhslj/KMS/Screenshot%202024-03-27%20at%2014.50.33_fqhjxy0Gv.png?updatedAt=1711525869538" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Super White Besar</h5>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card">
+            <div class="card h-100">
                <img src="https://ik.imagekit.io/6ix6n7mhslj/KMS/Screenshot%202024-03-27%20at%2015.04.24__P2Mqin4b.png?updatedAt=1711526682613" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Philo Birkin</h5>
@@ -55,7 +55,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card">
+            <div class="card h-100">
                <img src="https://ik.imagekit.io/6ix6n7mhslj/KMS/Screenshot%202024-03-27%20at%2015.09.07_27jYXuv_r.png?updatedAt=1711526962091" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Aglaonema butterfly</h5>
@@ -74,7 +74,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card mt-4">
+            <div class="card h-100 mt-4">
                <img src="https://ik.imagekit.io/6ix6n7mhslj/KMS/Screenshot%202024-03-27%20at%2016.43.38_m3pfMg-_z.png?updatedAt=1711532654861" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Aglonema Suksom Jaipong</h5>
