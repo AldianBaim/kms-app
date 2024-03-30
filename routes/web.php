@@ -57,6 +57,12 @@ Route::get('/forum/detail/{id}', [App\Http\Controllers\ForumController::class, '
 Route::get('/forum/create', [App\Http\Controllers\ForumController::class, 'create']);
 Route::post('/forum/store', [App\Http\Controllers\ForumController::class, 'store']);
 
+/**
+ * Transactions.
+ */
+Route::get('/transactions', [App\Http\Controllers\TransactionController::class, 'index']);
+Route::get('/transactions/changeStatus', [App\Http\Controllers\TransactionController::class, 'changeStatus']);
+
 
 /**
  * User.

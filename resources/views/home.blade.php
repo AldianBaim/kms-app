@@ -77,7 +77,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-3 col-lg-2 text-center">
-            <a href="{{ url("knowledge/detail/3") }}">
+            <a href="{{ url('transactions') }}">
                 <img src="{{asset('image/icon/content/permodalan.png')}}" class="w-75 rounded rounded" />
                 <div class="label">PESANAN MASUK</div>
             </a>
