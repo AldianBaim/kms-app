@@ -24,7 +24,8 @@ class CatalogueController extends Controller
      */
     public function index(Request $request)
     {
-        return view('catalogue/index');
+        $products = DB::table('products')->get();
+        return view('catalogue/index', compact('products'));
     }
 
     /**
@@ -36,5 +37,37 @@ class CatalogueController extends Controller
     {
         // Semua produk punya petani. Bukan mode owner/
         return view('catalogue/all');
+    }
+
+    public function create() {
+        return view('catalogue/create');
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'city' => 'required',
+            'image' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $catalogue = $request->file('image')->getClientOriginalName();
+            $request->image->storeAs('public/image/catalogue', $catalogue);
+        }
+
+        DB::table('products')->insert([
+            'title' => $request->title,
+            'description' => $request->description,
+            'city' => $request->city,
+            'image' => $catalogue,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'created_at' => date('Y-m-d H:i:s')
+        ]);
+
+        return redirect('/catalogue')->with('message', 'Katalog baru berhasil ditambahkan');
     }
 }

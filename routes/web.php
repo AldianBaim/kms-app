@@ -31,10 +31,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'index']);
 
 /**
- * Catalogoue.
+ * Catalogue.
  */
 Route::get('/catalogue', [App\Http\Controllers\CatalogueController::class, 'index']);
 Route::get('/catalogue/all', [App\Http\Controllers\CatalogueController::class, 'all']);
+Route::get('/catalogue/create', [App\Http\Controllers\CatalogueController::class, 'create']);
+Route::post('/catalogue/store', [App\Http\Controllers\CatalogueController::class, 'store']);
 
 /**
  * Knowledge.
