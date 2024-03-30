@@ -86,6 +86,18 @@
                 <span>Bagikan Informasi</span>
             </a>
         </li>
+        <li class="list-group-item">
+            <a href="{{ url('/photo') }}" class="link">
+                <i class="fa fa-fw fa-photo"></i>
+                <span>Foto Galeri</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url('/berbagi-berkas') }}" class="link">
+                <i class="fa fa-fw fa-file"></i>
+                <span>Berbagi Data</span>
+            </a>
+        </li>
         <li class="list-group-item {{ request()->is('forum') ? 'active' : '' }}">
             <a href="{{ url('/forum') }}" class="link">
                 <i class="fa fa-fw fa-comment"></i>
