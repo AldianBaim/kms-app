@@ -117,7 +117,7 @@
     </div>
 </div>
     
-@elseif (Auth::user()->role_name == 'organisasi')
+@elseif (Auth::user()->role_name == 'organisasi' || Auth::user()->role_name == 'penyuluh')
 
 <div class="program my-4">
     <div class="row">

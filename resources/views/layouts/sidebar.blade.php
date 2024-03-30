@@ -80,6 +80,12 @@
                 <span>Home</span>
             </a>
         </li>
+        <li class="list-group-item {{ request()->is('knowledge-capturing') ? 'active' : '' }}">
+            <a href="{{ url('/knowledge/create') }}" class="link">
+                <i class="fa fa-fw fa-pencil"></i>
+                <span>Bagikan Informasi</span>
+            </a>
+        </li>
         <li class="list-group-item {{ request()->is('forum') ? 'active' : '' }}">
             <a href="{{ url('/forum') }}" class="link">
                 <i class="fa fa-fw fa-comment"></i>

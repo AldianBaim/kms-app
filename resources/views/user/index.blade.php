@@ -25,8 +25,10 @@
             <table class="table table-bordered align-middle">
                 <thead>
                     <tr>
-                        <th>Avatar</th>
                         <th>Nama</th>
+                        <th>Surel</th>
+                        <th>Telepon</th>
+                        <th>Lokasi</th>
                         <th>Peran</th>
                         <th>Pekerjaan</th>
                         <th>Pesan</th>
@@ -35,9 +37,14 @@
                 <tbody>
                     @foreach ($users as $user)
                     <tr>
-                        <td width="100"><img src="https://www.gravatar.com/avatar/94d093eda664addd6e450d7e9881bcad?s=32&d=mp&r=PG" width="50" alt=""></td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->role_name}}</td>
+                        <td>
+                            <img src="https://www.gravatar.com/avatar/94d093eda664addd6e450d7e9881bcad?s=32&d=mp&r=PG" width="50" alt="">
+                            <div class="mt-2">{{$user->name}}</div>
+                        </td>
+                        <td>{{$user->email}}</td>
+                        <td><a href="https://wa.me/{{$user->phone}}" target="_blank">{{$user->phone}}</td>
+                        <td>{{$user->location}}</td>
+                        <td>{{ucfirst($user->role_name)}}</td>
                         <td>{!! $user->job ?? '<i>Pekerjaan belum diisi</i>' !!}</td>
                         <td width="140">
                             <a href="" class="btn btn-sm btn-outline-primary"><i class="fa fa-envelope-open-text"></i> Kirim Pesan</a>
