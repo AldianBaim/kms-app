@@ -34,7 +34,6 @@
     <img src="" class="w-50" alt="" />
 </div>
 
-
 @if (Auth::user()->role_name == 'petani')
 
 <div class="program my-4">
@@ -54,7 +53,7 @@
         <div class="col-3 col-lg-2 text-center">
             <a href="{{ url("knowledge") }}">
                 <img src="{{asset('image/icon/content/artikel-terbaru.png')}}" class="w-75 rounded" />
-                <div class="label">BERITA TERBARU</div>
+                <div class="label">INFORMASI TERBARU</div>
             </a>
         </div>
         <div class="col-3 col-lg-2 text-center">
@@ -118,6 +117,66 @@
     </div>
 </div>
     
+@elseif (Auth::user()->role_name == 'organisasi')
+
+<div class="program my-4">
+    <div class="row">
+        <div class="col-3 col-lg-2 text-center">
+            <a href="{{ url("page/stats") }}">
+                <img src="{{asset('image/icon/content/teknik-budidaya.png')}}" class="w-75 rounded" />
+                <div class="label">STATISTIK</div>
+            </a>
+        </div>
+        <div class="col-3 col-lg-2 text-center">
+            <a href="{{ url("catalogue/all") }}">
+                <img src="{{asset('image/icon/content/pembibitan.png')}}" class="w-75 rounded" />
+                <div class="label">LIHAT KATALOG</div>
+            </a>
+        </div>
+        <div class="col-3 col-lg-2 text-center">
+            <a href="{{ url("user") }}">
+                <img src="{{asset('image/icon/content/anggota-komunitas.png')}}" class="w-75 rounded" />
+                <div class="label">DATA PETANI</div>
+            </a>
+        </div>
+        <div class="col-3 col-lg-2 text-center">
+            <a href="{{ url("knowledge") }}">
+                <img src="{{asset('image/icon/content/artikel-terbaru.png')}}" class="w-75 rounded" />
+                <div class="label">INFORMASI TERBARU</div>
+            </a>
+        </div>
+        <div class="col-3 col-lg-2 text-center">
+            <a href="{{ url("page/most-active") }}">
+                <img src="{{asset('image/icon/content/anggota-teraktif.png')}}" class="w-75 rounded" />
+                <div class="label">ANGGOTA TERAKTIF</div>
+            </a>
+        </div>
+        <div class="col-3 col-lg-2 text-center">
+            <a href="{{ url('prediction') }}">
+                <img src="{{asset('image/icon/content/prediksi.png')}}" class="w-75 rounded" />
+                <div class="label">PREDIKSI HARGA</div>
+            </a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        
+        <div class="col-3 col-lg-2 text-center">
+            <a href="{{ url('kritik-dan-saran') }}">
+                <img src="{{asset('image/icon/content/kritik.png')}}" class="w-75 rounded" />
+                <div class="label">KRITIK DAN SARAN</div>
+            </a>
+        </div>
+
+        <div class="col-3 col-lg-2 text-center">
+            <a href="{{ url('message') }}">
+                <img src="{{asset('image/icon/content/pesan-masuk.png')}}" class="w-75 rounded" />
+                <div class="label">PESAN MASUK</div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
 @else
     
 <div class="program my-4">

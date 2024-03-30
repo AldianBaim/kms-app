@@ -34,6 +34,7 @@ Route::get('/page/{slug}', [App\Http\Controllers\PageController::class, 'index']
  * Catalogoue.
  */
 Route::get('/catalogue', [App\Http\Controllers\CatalogueController::class, 'index']);
+Route::get('/catalogue/all', [App\Http\Controllers\CatalogueController::class, 'all']);
 
 /**
  * Knowledge.

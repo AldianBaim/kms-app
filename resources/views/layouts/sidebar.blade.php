@@ -71,7 +71,45 @@
 
     @endif
 
-    @if (Auth::user()->role_name == 'petani' || Auth::user()->role_name == 'pedagang' || Auth::user()->role_name == 'penyuluh' || Auth::user()->role_name == 'dinas')
+    @if (Auth::user()->role_name == 'organisasi' || Auth::user()->role_name == 'penyuluh')
+
+    <ul class="list-group">
+        <li class="list-group-item {{ request()->is('home') ? 'active' : '' }}">
+            <a href="{{ url('/home') }}" class="link">
+                <i class="fa fa-fw fa-home"></i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li class="list-group-item {{ request()->is('forum') ? 'active' : '' }}">
+            <a href="{{ url('/forum') }}" class="link">
+                <i class="fa fa-fw fa-comment"></i>
+                <span>Diskusi Tani</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url('/prediction') }}" class="link">
+                <i class="fa fa-fw fa-magnifying-glass"></i>
+                <span>Prediksi Trend</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url('/pengaturan') }}" class="link">
+                <i class="fa fa-fw fa-gear"></i>
+                <span>Pengaturan</span>
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a class="link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <i class="fa fa-fw fa-right-from-bracket"></i>
+                <span>Keluar</span>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </li>
+    @endif
+
+    @if (Auth::user()->role_name == 'petani')
 
     <ul class="list-group">
         <li class="list-group-item {{ request()->is('home') ? 'active' : '' }}">

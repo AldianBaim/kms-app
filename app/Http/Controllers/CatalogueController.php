@@ -26,4 +26,15 @@ class CatalogueController extends Controller
     {
         return view('catalogue/index');
     }
+
+    /**
+     * Catalogue For Public
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function all(Request $request)
+    {
+        // Semua produk punya petani. Bukan mode owner/
+        return view('catalogue/all');
+    }
 }
