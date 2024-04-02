@@ -36,31 +36,45 @@
     <div id="app" class="bg-secondary">
 
         <div class="row justify-content-center">
-            <div class="col-lg-4 bg-white">
-                <nav class="navbar navbar-expand-lg m-0 d-flex justify-content-between">
-                    <a class="navbar-brand" href="#">KMS</a>
-                    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fa fa-lg fa-bars"></i></button>
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                        <div class="offcanvas-header">
-                            <h5 id="offcanvasRightLabel">Menu</h5>
-                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body px-0 pt-0">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                                    Beranda
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action">Kategori</a>
-                                <a href="#" class="list-group-item list-group-item-action">Keranjang Belanja</a>
-                                <a href="#" class="list-group-item list-group-item-action">Pesanan</a>
-                                <a class="list-group-item list-group-item-action disabled" aria-disabled="true">Akun</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+            <div class="col-lg-4 bg-white p-0 position-relative">
                 <main>
                     @yield('content')
                 </main>
+                <div class="position-sticky fixed-bottom shadow-sm bg-white p-3 pt-4 w-100">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <i class="fa fa-lg fa-home"></i>
+                            <small>Home</small>
+                        </div>
+                        <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <i class="fa fa-lg fa-shapes"></i>
+                            <small>Kategori</small>
+                        </div>
+                        <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <i class="fa fa-lg fa-kitchen-set"></i>
+                            <small>Resep</small>
+                        </div>
+                        <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <i class="fa fa-lg fa-shopping-cart"></i>
+                            <small>Keranjang</small>
+                        </div>
+                        <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <i class="fa fa-lg fa-user"></i>
+                            <small>Akun</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+                ...
             </div>
         </div>
 
