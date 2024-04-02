@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('login');
 });
+
+
+Route::group(['prefix' => '/shop'], function () use ($router) {
+    Route::get('/', [ShopController::class, 'index']);
+    Route::get('/product/{slug}', [ShopController::class, 'detail']);
+});
+
 
 Route::get('/users', [UserController::class, 'index'])->middleware('auth:sanctum');;
 

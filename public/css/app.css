@@ -1,7 +1,7 @@
 :root {
     --primary: #1e90ff;
-    --secondary: #EFEFEF;
-  }
+    --secondary: #efefef;
+}
 
 .bg-secondary {
     background-color: var(--secondary) !important;
@@ -9,7 +9,7 @@
 
 .list-group-item {
     border: 0 !important;
-    box-shadow: 2px 15px 10px -21px rgba(0,0,0,0.9) inset;
+    box-shadow: 2px 15px 10px -21px rgba(0, 0, 0, 0.9) inset;
     padding: 15px 15px;
     font-size: 20px;
 }
@@ -20,7 +20,7 @@
 
 a {
     text-decoration: none;
-    color: rgb(94, 92, 92);;
+    color: rgb(94, 92, 92);
 }
 
 .link {
@@ -34,6 +34,15 @@ a {
 
 .link:hover {
     color: rgb(94, 92, 92);
+}
+
+.card-hover {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
 }
 
 .active {

@@ -14,7 +14,6 @@ class CatalogueController extends Controller
      */
     public function __construct()
     {
-    
     }
 
     /**
@@ -39,11 +38,13 @@ class CatalogueController extends Controller
         return view('catalogue/all');
     }
 
-    public function create() {
+    public function create()
+    {
         return view('catalogue/create');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -60,6 +61,7 @@ class CatalogueController extends Controller
 
         DB::table('products')->insert([
             'title' => $request->title,
+            'slug' => str_replace(' ', '-', strtolower($request->title)),
             'description' => $request->description,
             'city' => $request->city,
             'image' => $catalogue,
