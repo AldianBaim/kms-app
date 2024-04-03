@@ -70,11 +70,41 @@
 
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Pilih Detail Pengiriman</h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body small">
-                ...
+                <div class="row border-bottom pb-3">
+                    <div class="col-1">
+                        <i class="fa fa-lg fa-location-dot text-success"></i>
+                    </div>
+                    <div class="col-10">
+                        <h6>Alamat belum dipilih</h6>
+                        <span>Mulai atur alamat pengiriman</span>
+                        <div class="d-flex text-warning gap-1 align-items-center mt-2" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomAddress" aria-controls="offcanvasBottom">
+                            <i class="fa fa-circle-info"></i>
+                            <span>Titik alamat perlu diperbaharui untuk pengiriman yang lebih akurat</span>
+                            <i class="fa fa-chevron-right text-dark"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasBottomAddress" aria-labelledby="offcanvasBottomLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+                    <i class="fa fa-lg fa-chevron-left"></i>
+                </button>
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Masukan alamat kamu</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+                <form action="">
+                    <div class="form-group">
+                        <label for="address" class="form-label">Alamat</label>
+                        <textarea name="address" id="address" cols="30" rows="5" class="form-control border-success" placeholder="Tulis nama jalan/gedung/tempat"></textarea>
+                    </div>
+                </form>
             </div>
         </div>
 

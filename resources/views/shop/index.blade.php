@@ -42,27 +42,27 @@
     </div>
     <div class="mb-3 px-3">
         <div class="row text-center">
-            <div class="col-lg-2 mb-3">
+            <div class="col-2 mb-3">
                 <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/semua-product.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
                 <small>Semua Produk</small>
             </div>
-            <div class="col-lg-2 mb-3">
+            <div class="col-2 mb-3">
                 <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/buah.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
                 <small>Buah</small>
             </div>
-            <div class="col-lg-2 mb-3">
+            <div class="col-2 mb-3">
                 <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/sayuran.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
                 <small>Sayuran</small>
             </div>
-            <div class="col-lg-2 mb-3">
+            <div class="col-2 mb-3">
                 <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/daging.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
                 <small>Daging</small>
             </div>
-            <div class="col-lg-2 mb-3">
+            <div class="col-2 mb-3">
                 <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/makanan-siap-saji.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
                 <small>Makanan Siap Saji</small>
             </div>
-            <div class="col-lg-2 mb-3">
+            <div class="col-2 mb-3">
                 <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/bahan-pokok.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
                 <small>Bahan Pokok</small>
             </div>
