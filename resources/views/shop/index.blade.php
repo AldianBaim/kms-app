@@ -7,8 +7,8 @@
         <div class="d-flex justify-content-between align-items-center py-3 position-absolute mt-2" style="z-index: 10;left: 50%;transform: translateX(-50%);width:90%" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
             <div class="d-flex align-items-center gap-3">
                 <i class="fa fa-lg fa-location-dot text-warning"></i>
-                <div class="d-flex flex-column">
-                    <small>Dikirim ke Cirendeu</small>
+                <div class="d-flex flex-column text-white">
+                    <small>Dikirim ke Cimahi</small>
                     <small><strong>Hari ini</strong> 07:00 - 08:00</small>
                 </div>
                 <i class="fa fa-chevron-down"></i>
@@ -16,18 +16,18 @@
             <i class="fa fa-lg fa-heart text-danger"></i>
         </div>
         <div class="form-group mb-2 position-absolute" style="z-index: 10;right: 50%;transform: translateX(50%);width:90%;margin-top:90px">
-            <input type="text" class="form-control rounded-pill" placeholder="Cari produk terjadwal">
+            <input type="text" class="form-control rounded-pill" placeholder="Cari aglaonema yang kamu suka">
         </div>
         <div id="carouselExampleControls" style="z-index: 1;" class="carousel slide position-relative" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://assets-cloudflare.segari-ops.id/banners/it-NewCustomerOnboarding-lsbbsgxt-new-lugcw2y3.webp" class="d-block w-100" alt="...">
+                    <img src="https://ik.imagekit.io/8jggdaymrs/KMS/WhatsApp%20Image%202024-04-18%20at%2014.03.42.jpeg" class="d-block w-100" style="height: 350px;object-fit:cover" alt="Cover">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://assets-cloudflare.segari-ops.id/banners/it-104PersiapanLebaran-lucc835k-new-lucc85xx.webp" class="d-block w-100" alt="...">
+                    <img src="https://ik.imagekit.io/8jggdaymrs/KMS/WhatsApp%20Image%202024-04-18%20at%2014.03.41.jpeg" class="d-block w-100" style="height: 350px;object-fit:cover" alt="Cover">
                 </div>
                 <div class="carousel-item">
-                    <img src="https://assets-cloudflare.segari-ops.id/banners/it-104HargaGila-luccax71-new-luccazo2.webp" class="d-block w-100" alt="...">
+                    <img src="https://ik.imagekit.io/8jggdaymrs/KMS/WhatsApp%20Image%202024-04-18%20at%2014.03.42%20(1).jpeg" class="d-block w-100" style="height: 350px;object-fit:cover" alt="Cover">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -42,29 +42,29 @@
     </div>
     <div class="mb-3 px-3">
         <div class="row text-center">
-            <div class="col-2 mb-3">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/semua-product.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
+            <div class="col-2 mb-3 card-hover">
+                <img src="https://ik.imagekit.io/8jggdaymrs/KMS/category/semua-product.webp" class="w-100 rounded-circle" alt="">
                 <small>Semua Produk</small>
             </div>
-            <div class="col-2 mb-3">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/buah.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
-                <small>Buah</small>
+            <div class="col-2 mb-3 card-hover">
+                <img src="https://ik.imagekit.io/8jggdaymrs/KMS/category/suksom-jaipong.jpeg" class="w-100 rounded-circle" alt="">
+                <small>Suksom Jaipong</small>
             </div>
-            <div class="col-2 mb-3">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/sayuran.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
-                <small>Sayuran</small>
+            <div class="col-2 mb-3 card-hover">
+                <img src="https://ik.imagekit.io/8jggdaymrs/KMS/category/suksom-merapi.jpeg" class="w-100 rounded-circle" alt="">
+                <small>Suksom Merapi</small>
             </div>
-            <div class="col-2 mb-3">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/daging.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
-                <small>Daging</small>
+            <div class="col-2 mb-3 card-hover">
+                <img src="https://ik.imagekit.io/8jggdaymrs/KMS/category/red-venus.jpeg" class="w-100 rounded-circle" alt="">
+                <small>Red Venus</small>
             </div>
-            <div class="col-2 mb-3">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/makanan-siap-saji.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
-                <small>Makanan Siap Saji</small>
+            <div class="col-2 mb-3 card-hover">
+                <img src="https://ik.imagekit.io/8jggdaymrs/KMS/category/red-spider.jpeg" class="w-100 rounded-circle" alt="">
+                <small>Red Spider</small>
             </div>
-            <div class="col-2 mb-3">
-                <img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v2/bahan-pokok.png?feature-name=category_item&page-route=products&platform=web" class="w-100" alt="">
-                <small>Bahan Pokok</small>
+            <div class="col-2 mb-3 card-hover">
+                <img src="https://ik.imagekit.io/8jggdaymrs/KMS/category/catrina.jpeg" class="w-100 rounded-circle" alt="">
+                <small>Catrina</small>
             </div>
         </div>
     </div>
