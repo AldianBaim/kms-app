@@ -34,7 +34,7 @@
     <img src="" class="w-50" alt="" />
 </div>
 
-@if (Auth::user()->role_name == 'petani')
+@if (Auth::user()->role_name == 'petani' || Auth::user()->role_name == 'pedagang')
 
 <div class="program my-4">
     <div class="row">
