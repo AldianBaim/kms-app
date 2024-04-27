@@ -71,7 +71,7 @@
 
     @endif
 
-    @if (Auth::user()->role_name == 'organisasi' || Auth::user()->role_name == 'penyuluh')
+    @if (Auth::user()->role_name == 'organisasi' || Auth::user()->role_name == 'penyuluh' || Auth::user()->role_name == 'pakar')
 
     <ul class="list-group">
         <li class="list-group-item {{ request()->is('home') ? 'active' : '' }}">
