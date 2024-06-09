@@ -8,8 +8,8 @@
             <div class="d-flex align-items-center gap-3">
                 <i class="fa fa-lg fa-location-dot text-warning"></i>
                 <div class="d-flex flex-column text-white">
-                    <small>Dikirim ke Cimahi</small>
-                    <small><strong>Hari ini</strong> 07:00 - 08:00</small>
+                    <small>Selamat datang, <b>{{ Auth::user()->name }}</b></small>
+                    <small><strong>Hari ini</strong> {{ date('d M Y H:i:s'); }}</small>
                 </div>
                 <i class="fa fa-chevron-down"></i>
             </div>
@@ -82,12 +82,12 @@
                             <p class="card-text text-right"><b>Rp {{ number_format($product->price) }}</b></p>
                             <p class="card-text text-right">
                             <div class="row">
-                                <div class="col"><span class="text-muted small">Kota Bandung</span></div>
-                                <div class="col"><span class="text-muted small">Stok : {{ $product->stock }} Buah</span></div>
+                                <div class="col"><span class="text-muted small">Kota<br/><b>Bandung</b></span></div>
+                                <div class="col"><span class="text-muted small">Stok<br/><b>{{ $product->stock }} Buah</b></span></div>
                             </div>
                             </p>
                             <div class="d-grid mt-4">
-                                <a href="{{ url('/shop/product/' . $product->slug) }}" class="btn btn-sm btn-outline-success rounded-pill">Beli</a>
+                                <a href="{{ url('shop/checkout/' . $product->slug) }}" class="btn btn-sm btn-outline-success rounded-pill">Lihat Detail</a>
                             </div>
                         </div>
                     </div>

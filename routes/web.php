@@ -24,6 +24,9 @@ Route::get('/', function () {
 Route::group(['prefix' => '/shop'], function () use ($router) {
     Route::get('/', [ShopController::class, 'index']);
     Route::get('/product/{slug}', [ShopController::class, 'detail']);
+    Route::get('/checkout/{slug}', [ShopController::class, 'checkout']);
+    Route::post('/purchase', [ShopController::class, 'purchase']);
+    Route::get('/history', [ShopController::class, 'history']);
 });
 
 

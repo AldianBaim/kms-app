@@ -43,24 +43,28 @@
                 <div class="position-sticky fixed-bottom shadow-sm bg-white p-3 pt-4 w-100">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <a href="/shop">
                             <i class="fa fa-lg fa-home"></i>
                             <small>Home</small>
+                            </a>
                         </div>
                         <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <a href="/shop/order">
                             <i class="fa fa-lg fa-shapes"></i>
                             <small>Kategori</small>
+                            </a>
                         </div>
                         <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
-                            <i class="fa fa-lg fa-kitchen-set"></i>
-                            <small>Resep</small>
-                        </div>
-                        <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <a href="/shop/order">
                             <i class="fa fa-lg fa-shopping-cart"></i>
-                            <small>Keranjang</small>
+                            <small>Order</small>
+                            </a>
                         </div>
                         <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
+                            <a href="/shop/account">
                             <i class="fa fa-lg fa-user"></i>
                             <small>Akun</small>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -13,8 +13,7 @@
             <small>Stock : {{ $product->stock }}</small>
             <p class="mt-2">{{ $product->description }}</p>
             <p class="text-right"><b>Rp {{ number_format($product->price) }}</b></p>
-            <a href="" class="btn btn-primary btn-block">Add to Cart</a>
-            <a href="" class="btn btn-secondary btn-block">View Cart</a>
+            <a href="/shop/checkout/{{ $product->slug }}" class="btn btn-primary pull-right">Checkout</a>
         </div>
     </div>
 </section>
