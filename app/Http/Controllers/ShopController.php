@@ -39,6 +39,13 @@ class ShopController extends Controller
         return view('shop/order', compact('orders'));
     }
 
+    public function order_detail($order_code)
+    {
+        $order = DB::table('transactions')->join('products', 'products.id', '=', 'transactions.product_id')->where('order_code', $order_code)->first();
+        
+        return view('shop/order_detail', compact('order'));
+    }
+
     public function purchase(Request $request)
     {
         $input = $request->input();

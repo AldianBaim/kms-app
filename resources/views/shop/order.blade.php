@@ -38,7 +38,7 @@
                             <div><b>Rp. {{ number_format($order->amount) }}</b></div>
 
                             <div class="mt-3">
-                                <a href="#" class="">Lihat detail transaksi</a>
+                                <a href="/shop/order/detail/{{ $order->order_code }}" class="">Lihat detail transaksi</a>
                             </div>
                         </div>
                        

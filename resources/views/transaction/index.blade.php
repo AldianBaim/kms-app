@@ -43,6 +43,7 @@
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>Kode Pesanan</th>
                     <th>Produk</th>
                     <th>Harga</th>
                     <th>Jumlah</th>
@@ -57,6 +58,7 @@
                 @foreach($transactions as $transaction)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td>{{ $transaction->order_code }}</td>
                     <td>{{ $transaction->product_name }}</td>
                     <td>{{ number_format($transaction->product_price) }}</td>
                     <td>{{ $transaction->qty }}</td>
@@ -67,7 +69,7 @@
                     </td>
                     <td>{{ number_format($transaction->product_price * $transaction->qty) }}</td>
                     <td width="20%">
-                        <a href="{{ url('transactions/changeStatus?id=' . $transaction->id . '&status=cancel') }}" class="btn btn-sm btn-danger">Batalkan</a>
+                        <a href="{{ url('transactions/changeStatus?id=' . $transaction->id . '&status=cancel') }}" class="btn btn-sm btn-danger mb-2">Batalkan</a>
                         @if($transaction->status != 'process')
                         <a href="{{ url('transactions/changeStatus?id=' . $transaction->id . '&status=process') }}" class="btn btn-sm btn-warning">Proses</a>
                         @endif

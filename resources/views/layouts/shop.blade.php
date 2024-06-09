@@ -49,7 +49,7 @@
                             </a>
                         </div>
                         <div class="d-flex gap-3 flex-column align-items-center justify-content-center">
-                            <a href="/shop/order">
+                            <a href="/shop/category">
                             <i class="fa fa-lg fa-shapes"></i>
                             <small>Kategori</small>
                             </a>
