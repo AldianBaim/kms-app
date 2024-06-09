@@ -68,7 +68,7 @@
                         <div class="form-group mb-3">
                             <label class="form-label">Email</label>
                             <div class="position-relative">
-                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" placeholder="" id="first-name-icon">
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $user->email }}" placeholder="" id="first-name-icon" readonly>
                                 <div class="form-control-icon">
                                     <i class="bi bi-envelope"></i>
                                 </div>
@@ -76,18 +76,6 @@
                             @error('email')
                             <small class="text-danger">{{ $message }}</small>
                             @enderror
-                        </div>
-                        <div class="form-group mb-4">
-                            <label class="form-label">Peran</label>
-                            <div class="input-group">
-                                <select name="role_name" class="form-control">
-                                    <option value="petani" {{ $user->role_name == 'petani' ? 'selected' : '' }}>Petani</option>
-                                    <option value="pedagang" {{ $user->role_name == 'pedagang' ? 'selected' : '' }}>Pedagang</option>
-                                    <option value="penyuluh" {{ $user->role_name == 'penyuluh' ? 'selected' : '' }}>Penyuluh</option>
-                                    <option value="dinas" {{ $user->role_name == 'dinas' ? 'selected' : '' }}>Dinas Pertanian</option>
-                                    <option value="kelompok" {{ $user->role_name == 'kelompok' ? 'selected' : '' }}>Kelompok Petani</option>
-                                </select>
-                            </div>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-outline-success me-1 mb-1">Update</button>
