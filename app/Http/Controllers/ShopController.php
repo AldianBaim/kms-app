@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -27,10 +32,11 @@ class ShopController extends Controller
         return view('shop/checkout', compact('product'));
     }
 
-    public function history()
+    public function order()
     {
-        $orders = [];
-        return view('shop/history', compact('orders'));
+        $orders = DB::table('transactions')->join('products', 'products.id', '=', 'transactions.product_id')->where('customer_email', Auth::user()->email)->get();
+        
+        return view('shop/order', compact('orders'));
     }
 
     public function purchase(Request $request)
