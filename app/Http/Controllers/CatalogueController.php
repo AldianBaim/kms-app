@@ -61,6 +61,7 @@ class CatalogueController extends Controller
 
         DB::table('products')->insert([
             'title' => $request->title,
+            'category' => $request->category,
             'slug' => str_replace(' ', '-', strtolower($request->title)),
             'description' => $request->description,
             'city' => $request->city,

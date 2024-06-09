@@ -69,4 +69,15 @@ class ShopController extends Controller
 
         return view('shop/purchase', ['order_code' => $order_code, 'amount' => $input['amount'], 'product' => $product]);
     }
+
+    public function category() {
+        $products = DB::table('products')->get();
+        $categories = ['Suksom Jaipong', 'Suksom Merapi', 'Red Venus', 'Red Spider', 'Catrina'];
+        return view('shop.category', compact('products', 'categories'));
+    }
+
+    public function account() {
+        $user = Auth::user();
+        return view('shop.account', compact('user'));
+    }
 }

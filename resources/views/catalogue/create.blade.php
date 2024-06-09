@@ -25,6 +25,20 @@
         </div>
 
         <div class="form-group mb-3">
+            <label for="title" class="form-label">Kategori</label>
+            <select name="category" id="category" class="form-control @error('category') is-invalid @enderror" required value="{{old('category')}}" >
+                <option value="Suksom Jaipong">Suksom Jaipong</option>
+                <option value="Suksom Merapi">Suksom Merapi</option>
+                <option value="Red Venus">Red Venus</option>
+                <option value="Red Spider">Red Spider</option>
+                <option value="Catrina">Catrina</option>
+            </select>
+            @error('category')
+            <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
+
+        <div class="form-group mb-3">
             <label for="title" class="form-label">Deskripsi</label>
             <textarea name="description" id="description" class="form-control @error('name') is-invalid @enderror" cols="20" rows="5" placeholder="Masukan deskripsi">{{ old('description') }}</textarea>
             @error('description')

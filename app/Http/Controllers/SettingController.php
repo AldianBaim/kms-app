@@ -52,6 +52,6 @@ class SettingController extends Controller
             'email' => $request->email,
             'role_name' => $request->role_name,
         ]);
-        return redirect('/my-profile');
+        return back()->with('status', 'Successfully updated.');
     }
 }

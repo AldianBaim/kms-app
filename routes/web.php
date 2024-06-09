@@ -28,6 +28,8 @@ Route::group(['prefix' => '/shop'], function () use ($router) {
     Route::post('/purchase', [ShopController::class, 'purchase']);
     Route::get('/order', [ShopController::class, 'order']);
     Route::get('/order/detail/{id}', [ShopController::class, 'order_detail']);
+    Route::get('/category', [ShopController::class, 'category']);
+    Route::get('/account', [ShopController::class, 'account']);
 });
 
 

@@ -29,6 +29,7 @@
                 <img src="{{ url('storage/image/catalogue/' . $product->image) }}" class="card-img-top" alt="{{ $product->title }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $product->title }}</h5>
+                    <small class="card-text text-muted mb-3 d-block">{{ $product->category }}</small>
                     <p class="card-text">{{ $product->description }}</p>
                     <p class="card-text text-right"><b>Rp {{ $product->price }}</b></p>
                     <p class="card-text text-right">
