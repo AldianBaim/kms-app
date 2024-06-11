@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Jika pembeli, buang ke shop
+        if (Auth::user()->role_name == 'pembeli') {
+            return redirect('/shop');
+        }
+        
         return view('home');
     }
 }
