@@ -77,6 +77,7 @@
                             <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
+                        <input type="hidden" value="{{ $user->role_name }}" name="role_name">
                         <div class="d-grid">
                             <button type="submit" class="btn btn-outline-success me-1 mb-1">Perbaharui</button>
                         </div>

@@ -42,13 +42,13 @@
         @endphp
 
         
-        <div class="mb-4">
-            <h5 class="mb-3">{{ $category }}</h5>
+        <div class="mb-4 px-4 px-lg-1">
+            <h5 class="mb-3 fw-bold">{{ $category }}</h5>
             <div class="row">
                 @if($categoryProducts->isEmpty())
                 <p class="text-muted">No products available in this category.</p>
                 @else
-                <div class="swiper mySwiper">
+                <div class="swiper mySwiper px-2">
                     <div class="swiper-wrapper">
                         @foreach($categoryProducts as $product)
                         <div class="swiper-slide">
@@ -96,7 +96,7 @@
             clickable: true,
         },
         slidesPerView: 1.5,
-        spaceBetween: 30,
+        spaceBetween: 10,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
