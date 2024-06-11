@@ -71,7 +71,11 @@
         </div>
     </div>
     <div class="p-3 bg-light">
-        <h5 class="mb-3">Rekomendasi Untukmu</h5>
+        <h5 class="mb-3">Hasil Pencarian</h5>
+
+        @if($products->first())
+        <p>Menemukan beberapa entry untuk kata kunci <b>{{ $_GET['keyword'] }}</b> :</p>
+        
         <div class="row">
             @foreach($products as $product)
             <div class="col-lg-6 mb-4">
@@ -97,6 +101,12 @@
             </div>
             @endforeach
         </div>
+
+        @else
+
+            <p>Tidak menemukan hasil dengan kata kunci <b>{{ $_GET['keyword'] }}</b></p>
+
+        @endif
     </div>
 </section>
 

@@ -27,6 +27,7 @@ Route::group(['prefix' => '/shop'], function () use ($router) {
     Route::get('/checkout/{slug}', [ShopController::class, 'checkout']);
     Route::post('/purchase', [ShopController::class, 'purchase']);
     Route::get('/order', [ShopController::class, 'order']);
+    Route::get('/search', [ShopController::class, 'search']);
     Route::get('/order/detail/{id}', [ShopController::class, 'order_detail']);
     Route::get('/category', [ShopController::class, 'category']);
     Route::get('/account', [ShopController::class, 'account']);

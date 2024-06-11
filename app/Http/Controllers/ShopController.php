@@ -20,6 +20,12 @@ class ShopController extends Controller
         return view('shop/index', compact('products'));
     }
 
+    public function search(Request $request)
+    {
+        $products = DB::table('products')->where('title', 'LIKE', '%'. $request->get('keyword') .'%')->get();
+        return view('shop/search', compact('products'));
+    }
+
     public function detail($slug)
     {
         $product = DB::table('products')->where('slug', $slug)->first();
