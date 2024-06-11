@@ -86,8 +86,8 @@
                     </div>
                     <div class="col-10">
                         <h6>Alamat belum dipilih</h6>
-                        <span>Mulai atur alamat pengiriman</span>
-                        <div class="d-flex text-warning gap-1 align-items-center mt-2" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomAddress" aria-controls="offcanvasBottom">
+                        <span class="text-white badge bg-warning" role="button" onclick="requestLocation()" id="address">Mulai atur alamat pengiriman</span>
+                        <div id="addressModal" class="d-flex text-warning gap-1 align-items-center mt-2" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottomAddress" aria-controls="offcanvasBottom">
                             <i class="fa fa-circle-info"></i>
                             <span>Titik alamat perlu diperbaharui untuk pengiriman yang lebih akurat</span>
                             <i class="fa fa-chevron-right text-dark"></i>
@@ -108,7 +108,8 @@
                 <form action="">
                     <div class="form-group">
                         <label for="address" class="form-label">Alamat</label>
-                        <textarea name="address" id="address" cols="30" rows="5" class="form-control border-success" placeholder="Tulis nama jalan/gedung/tempat"></textarea>
+                        <small class="text-muted d-block">Detail alamat akan otomatis tersimpan</small>
+                        <textarea name="detail_address" id="detailAddress" cols="30" rows="5" class="form-control border-success" placeholder="Tulis nama jalan/gedung/tempat"></textarea>
                     </div>
                 </form>
             </div>
@@ -120,6 +121,67 @@
         Fancybox.bind('[data-fancybox="gallery"]', {});
     </script>
     <script>
+        // Get current location user
+        let address = document.getElementById('address');
+        function requestLocation() {
+            if (confirm("This site would like to access your location. Do you allow?")) {
+                getLocation();
+            } else {
+                alert("Location access denied.");
+            }
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            var lat = position.coords.latitude;
+            var lon = position.coords.longitude;
+            getCityName(lat, lon);
+        }
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+
+        function getCityName(lat, lon) {
+            address.innerHTML = "Loading...";
+            var xhr = new XMLHttpRequest();
+            var url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var city = response.address.city || response.address.town || response.address.village;
+
+                    localStorage.setItem("cityAddress", city);
+                    address.innerHTML = city;
+                    address.classList.remove('bg-warning')
+                    address.classList.add('bg-success')
+                }
+            };
+            xhr.send();
+        }
+
         function previewImage() {
             document.getElementById("img-preview").style.display = "block";
             var oFReader = new FileReader();
@@ -132,6 +194,31 @@
 
         $(document).ready(function() {
             $('#summernote').summernote();
+
+            var textarea = document.getElementById("detailAddress");
+            let cityAddress = localStorage.getItem("cityAddress");
+            let detailAddress = localStorage.getItem("detailAddress");
+            let addressModal = document.getElementById('addressModal');
+
+            // Load saved content from localStorage
+            if (detailAddress) {
+                textarea.value = detailAddress;
+                addressModal.classList.remove('text-warning');
+                addressModal.classList.add('text-success');
+                addressModal.getElementsByTagName('span')[0].innerHTML = 'Detail alamat tersimpan';
+            }
+
+            if (cityAddress) {
+                address.innerHTML = cityAddress;
+                address.classList.remove('bg-warning')
+                address.classList.add('bg-success')
+            }
+
+            // Save content to localStorage on input event
+            textarea.addEventListener("input", function() {
+                localStorage.setItem("detailAddress", textarea.value);
+            });
+
         });
 
         $("#search").on("keyup", function() {
