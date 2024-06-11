@@ -78,9 +78,22 @@
                             @enderror
                         </div>
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-outline-success me-1 mb-1">Update</button>
+                            <button type="submit" class="btn btn-outline-success me-1 mb-1">Perbaharui</button>
                         </div>
                     </div>
+                </form>
+
+                <hr/>
+
+                <p>Keluar dari aplikasi?</p>
+
+                <button class="btn btn-outline-danger btn-block mt-2" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    <i class="fa fa-fw fa-right-from-bracket"></i>
+                    <span>Keluar</span>
+                </button>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
                 </form>
                         
             </div>
