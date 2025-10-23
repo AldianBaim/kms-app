@@ -72,7 +72,7 @@ class PredictionController extends Controller
     }
     
     /**
-     * Get top plants by average price for comparison chart (Optimized)
+     * Get top plants by average price for comparison chart (Optimized without cache)
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -82,49 +82,45 @@ class PredictionController extends Controller
         $year = $request->get('year');
         $limit = $request->get('limit', 10); // Default 10 plants
         
-        $cacheKey = 'top_plants_' . ($year ?? 'all') . '_' . $limit;
+        $query = DB::table('predictions')
+            ->select('plant_type')
+            ->selectRaw('AVG(price) as avg_price, COUNT(*) as data_count')
+            ->groupBy('plant_type')
+            ->having('data_count', '>=', 5); // Only plants with at least 5 data points
+            
+        if ($year) {
+            $query->whereYear('tanggal', $year);
+        }
         
-        $chartData = cache()->remember($cacheKey, 1800, function () use ($year, $limit) {
-            $query = DB::table('predictions')
-                ->select('plant_type')
-                ->selectRaw('AVG(price) as avg_price, COUNT(*) as data_count')
-                ->groupBy('plant_type')
-                ->having('data_count', '>=', 5); // Only plants with at least 5 data points
-                
-            if ($year) {
-                $query->whereYear('tanggal', $year);
-            }
-            
-            $topPlants = $query->orderByDesc('avg_price')
-                ->limit($limit)
-                ->get();
-            
-            return [
-                'labels' => $topPlants->pluck('plant_type'),
-                'datasets' => [
-                    [
-                        'data' => $topPlants->pluck('avg_price')->map(function ($price) {
-                            return round($price);
-                        }),
-                        'backgroundColor' => [
-                            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
-                            '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384'
-                        ],
-                        'borderColor' => [
-                            '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
-                            '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384'
-                        ],
-                        'borderWidth' => 2
-                    ]
+        $topPlants = $query->orderByDesc('avg_price')
+            ->limit($limit)
+            ->get();
+        
+        $chartData = [
+            'labels' => $topPlants->pluck('plant_type'),
+            'datasets' => [
+                [
+                    'data' => $topPlants->pluck('avg_price')->map(function ($price) {
+                        return round($price);
+                    }),
+                    'backgroundColor' => [
+                        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
+                        '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384'
+                    ],
+                    'borderColor' => [
+                        '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF',
+                        '#FF9F40', '#FF6384', '#C9CBCF', '#4BC0C0', '#FF6384'
+                    ],
+                    'borderWidth' => 2
                 ]
-            ];
-        });
+            ]
+        ];
         
         return response()->json($chartData);
     }
     
     /**
-     * Get monthly trend data for seasonal analysis (Optimized)
+     * Get monthly trend data for seasonal analysis (Optimized without cache)
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -134,49 +130,45 @@ class PredictionController extends Controller
         $plantType = $request->get('plant_type');
         $year = $request->get('year');
         
-        $cacheKey = 'monthly_trend_' . ($plantType ?? 'all') . '_' . ($year ?? 'all');
+        // Use raw DB query for better performance
+        $query = DB::table('predictions')
+            ->selectRaw('MONTH(tanggal) as month, AVG(price) as avg_price, COUNT(*) as data_count')
+            ->groupBy('month')
+            ->having('data_count', '>=', 3) // Only months with at least 3 data points
+            ->orderBy('month');
+            
+        if ($plantType) {
+            $query->where('plant_type', $plantType);
+        }
         
-        $chartData = cache()->remember($cacheKey, 1800, function () use ($plantType, $year) {
-            // Use raw DB query for better performance
-            $query = DB::table('predictions')
-                ->selectRaw('MONTH(tanggal) as month, AVG(price) as avg_price, COUNT(*) as data_count')
-                ->groupBy('month')
-                ->having('data_count', '>=', 3) // Only months with at least 3 data points
-                ->orderBy('month');
-                
-            if ($plantType) {
-                $query->where('plant_type', $plantType);
-            }
-            
-            if ($year) {
-                $query->whereYear('tanggal', $year);
-            }
-            
-            $monthlyData = $query->get();
-            
-            // Create array for all 12 months, fill missing months with 0
-            $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            $monthlyPrices = array_fill(0, 12, 0);
-            
-            foreach ($monthlyData as $data) {
-                $monthlyPrices[$data->month - 1] = round($data->avg_price);
-            }
-            
-            return [
-                'labels' => $months,
-                'datasets' => [
-                    [
-                        'label' => $plantType ? $plantType . ' - Trend Musiman' : 'Semua Jenis - Trend Musiman',
-                        'data' => $monthlyPrices,
-                        'backgroundColor' => 'rgba(54, 162, 235, 0.6)',
-                        'borderColor' => 'rgb(54, 162, 235)',
-                        'borderWidth' => 2,
-                        'borderRadius' => 5,
-                        'borderSkipped' => false,
-                    ]
+        if ($year) {
+            $query->whereYear('tanggal', $year);
+        }
+        
+        $monthlyData = $query->get();
+        
+        // Create array for all 12 months, fill missing months with 0
+        $months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        $monthlyPrices = array_fill(0, 12, 0);
+        
+        foreach ($monthlyData as $data) {
+            $monthlyPrices[$data->month - 1] = round($data->avg_price);
+        }
+        
+        $chartData = [
+            'labels' => $months,
+            'datasets' => [
+                [
+                    'label' => $plantType ? $plantType . ' - Trend Musiman' : 'Semua Jenis - Trend Musiman',
+                    'data' => $monthlyPrices,
+                    'backgroundColor' => 'rgba(54, 162, 235, 0.6)',
+                    'borderColor' => 'rgb(54, 162, 235)',
+                    'borderWidth' => 2,
+                    'borderRadius' => 5,
+                    'borderSkipped' => false,
                 ]
-            ];
-        });
+            ]
+        ];
         
         return response()->json($chartData);
     }
