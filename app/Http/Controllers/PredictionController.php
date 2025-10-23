@@ -44,9 +44,7 @@ class PredictionController extends Controller
         $data = Prediction::getChartData($plantType);
         
         $chartData = [
-            'labels' => $data->pluck('tanggal')->map(function ($date) {
-                return $date->format('Y-m-d');
-            }),
+            'labels' => $data->pluck('tanggal'), // tanggal sudah dalam format string
             'datasets' => [
                 [
                     'label' => $plantType ? $plantType : 'Semua Jenis',
