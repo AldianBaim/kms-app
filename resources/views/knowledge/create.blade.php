@@ -9,7 +9,7 @@
 @endif
 
 <section>
-    <h4>Knowledge Capturing.</h4>
+    <h4>Knowledge Sharing.</h4>
     <p><small>Bapak/ibu dapat membagikan berbagai pengetahuan penting seputar Aglaonema, dalam bentuk sumbangan konten artikel, video, dan audio.</small></p>
 
     <div class="row">
